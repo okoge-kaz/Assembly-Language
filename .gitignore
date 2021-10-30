@@ -4,3 +4,5 @@ code/self/a.out.dSYM/Contents/Resources/DWARF/a.out
 .gitignore
 .gitignore
 code/self/a.out.dSYM/Contents/Info.plist
+calc/a.out
+calc/b.out

@@ -46,6 +46,10 @@ program counter `%rip`
     - ZF   
     結果がゼロのときにセット、それ以外はクリア
 
-  
+## 5-insn1.pdf
 
+### CISC と RISC
+
+- CISC: Complex Instruction Set Computer   
+1つの命令で複雑な（複数の）処理を行う。直行性が低い(= 色々と例外とか場合によって複雑な条件がある。)
 

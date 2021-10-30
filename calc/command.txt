@@ -1,0 +1,7 @@
+gcc -Wall calc1.c
+
+./a.out '1+3*7=' > foo.s
+
+gcc -o b.out foo.s
+
+./b.out

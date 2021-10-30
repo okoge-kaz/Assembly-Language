@@ -1,4 +1,4 @@
-#!/bin/csh -f
+#!/bin/tcsh -f
 set noglob
 set num = 0
 set bad = 0
