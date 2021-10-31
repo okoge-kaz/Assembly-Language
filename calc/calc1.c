@@ -10,11 +10,11 @@ void calc(char last_op){
         return;
     }
     else if(last_op == '*'){
-        printf ("\timulq %%rbx, %%rax\n");
+        printf ("\timulq  %%rbx, %%rax\n");
         return;
     }
     else if(last_op == '/'){
-        printf ("\tidivq %%rbx\n");
+        printf ("\tidivq  %%rbx\n");
         return;
     }
     else if(last_op == '='){
@@ -36,6 +36,7 @@ int main (int argc, char *argv []){
             "\t.ascii \"%%d\\n\\0\"\n"
             ".text\n"
             ".globl _main\n"
+            ".p2align 4, 0x90\n"
             "_main:\n"
             "\tpushq %%rbp\n"
             "\tmovq  %%rsp, %%rbp\n");
@@ -91,18 +92,17 @@ int main (int argc, char *argv []){
             // 数字キー処理中 state == 1
             if('0' <= *p  && *p <= '9'){
                 int d = *p - '0';
-                // if(num < 0){
                 printf ("\tcmpq  $0, %%rbx\n");
-                printf ("\tjl    L%d\n",cnt);
-                // num = num * 10 - d; if 
+                // num >= 0 : -> num = num * 10 + d 
+                printf ("\tjge    LBB0_%d\n",cnt);
                 printf ("\timulq  $10, %%rbx\n");
                 printf ("\tsubq  $%d, %%rbx\n", d);
-                printf ("\tjmp   L%d\n", cnt+1);
-                printf ("L%d:\n", cnt);
-                // num = num * 10 + d; else 
+                printf ("\tjmp   LBB0_%d\n", cnt+1);
+                printf ("LBB0_%d:\n", cnt);
+                // num < 0: -> num = num * 10 - d
                 printf ("\timulq  $10, %%rbx\n");
                 printf ("\taddq  $%d, %%rbx\n", d);
-                printf ("L%d:\n", cnt+1);
+                printf ("LBB0_%d:\n", cnt+1);
                 cnt += 2;
                 // state 変更なし
             }
@@ -111,7 +111,7 @@ int main (int argc, char *argv []){
             }
             else if(*p == 'R'){
                 printf ("\tmovq  %%rcx, %%rax\n");// rcxの値をraxにset
-                printf ("\tmovq  $0, %%rax\n");// raxの値を0にリセット
+                // printf ("\tmovq  $0, %%rcx\n");// rcxの値を0にリセット
             }
             else if(*p == 'P'){
                 // こっちはいらない気がする
@@ -133,6 +133,8 @@ int main (int argc, char *argv []){
             else if(*p == 'S'){
                 // num = num * -1;
                 printf ("\timulq $-1, %%rbx\n");
+                // printf ("\tneg %%rbx\n");// 符号反転
+                // でもここがオーバーフローの原因になりそう
             }
             else if(*p == '+' || *p == '-' || *p == '*' || *p == '/' || *p == '='){
                 char op = *p;
@@ -146,10 +148,10 @@ int main (int argc, char *argv []){
     }
     // eax -> rax にしている
     printf ("\tleaq L_fmt(%%rip), %%rdi\n"
-            "\tmovslq %%eax, %%rsi\n"
-            "\tcall  _printf\n"
-            "\taddq  $16, %%rsp\n"
+            "\tmovslq  %%eax, %%rsi\n"
+            "\tmovb	$0, %%al\n"
+            "\tcallq  _printf\n"
             "\tleave\n"
-            "\tret\n");
+            "\tretq\n");
     return 0;
 }
