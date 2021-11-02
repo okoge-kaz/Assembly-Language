@@ -1,9 +1,6 @@
-.data
-L_fmt:
-	.ascii "%d\n\0"
-.text
-.globl _main
-.p2align 4, 0x90
+	.section	__TEXT,__text,regular,pure_instructions
+	.globl _main
+	.p2align 4, 0x90
 _main:
 	pushq %rbp
 	movq  %rsp, %rbp
@@ -25,9 +22,15 @@ LBB0_0:
 	movq  $0, %rdx
 	idivq  %rbx
 LBB0_1:
-	leaq L_fmt(%rip), %rdi
 	movq  %rax, %rsi
+	leaq L_.str(%rip), %rdi
 	movb	$0, %al
 	callq  _printf
-	leave
+	xorl	%ecx, %ecx
+	movq %rbp, %rsp
+	popq	%rbp
 	retq
+
+	.section	__TEXT,__cstring,cstring_literals
+L_.str:
+	.asciz	"%d\n"
