@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+int cnt = 0;
 void calc(char last_op){
     if(last_op == '+'){
         printf ("\taddq  %%rbx, %%rax\n");// rbx, raxではダメな理由は？
@@ -14,7 +14,22 @@ void calc(char last_op){
         return;
     }
     else if(last_op == '/'){
+        printf ("\tcmpq  $0, %%rax\n");
+        printf ("\tjae   LBB0_%d\n",cnt);
+        //
+        printf ("\tmovq  $0x8000, %%rdx\n");
+        printf ("\tmovq  $0x8000, %%r8\n");
+        printf ("\txorq  %%r8, %%rbx\n");
         printf ("\tidivq  %%rbx\n");
+        //
+        printf ("\tjmp   LBB0_%d\n",cnt+1);
+        printf ("LBB0_%d:\n",cnt);
+        //
+        printf ("\tmovq  $0, %%rdx\n");
+        printf ("\tidivq  %%rbx\n");
+        //
+        printf ("LBB0_%d:\n",cnt+1);
+        cnt += 2;
         return;
     }
     else if(last_op == '='){
@@ -28,7 +43,7 @@ int state_change(int state){ return 1 - state; }
 int main (int argc, char *argv []){
     // variables 
     char last_op; char *p = argv [1];
-    int state = 0; int cnt = 0;
+    int state = 0;
     last_op = '+';
     // 
     printf (".data\n"
@@ -56,11 +71,10 @@ int main (int argc, char *argv []){
                 printf ("\tmovq  $0, %%rcx\n");
             }
             else if(*p == 'R'){
-                printf ("\tmovq  %%rax, %%rcx\n");// raxの値をmemoryに移動して
-                printf ("\tmovq  $0, %%rax\n");// raxの値を0にリセット
+                printf ("\tmovq  %%rcx, %%rax\n");// raxの値をmemoryに移動して
+                printf ("\tmovq  $0, %%rcx\n");// rcxの値を0にリセット
             }
             else if(*p == 'P'){
-                // こっちはいらない気がする
                 p++;
                 calc(last_op);
                 printf ("\taddq  %%rax, %%rcx\n");// raxの値をmemoryの役目があるrcxに足し込む
@@ -111,10 +125,9 @@ int main (int argc, char *argv []){
             }
             else if(*p == 'R'){
                 printf ("\tmovq  %%rcx, %%rax\n");// rcxの値をraxにset
-                // printf ("\tmovq  $0, %%rcx\n");// rcxの値を0にリセット
+                printf ("\tmovq  $0, %%rcx\n");// rcxの値を0にリセット
             }
             else if(*p == 'P'){
-                // こっちはいらない気がする
                 p++;
                 calc(last_op);
                 printf ("\taddq  %%rax, %%rcx\n");// raxの値をmemoryの役目があるrcxに足し込む
@@ -148,9 +161,9 @@ int main (int argc, char *argv []){
     }
     // eax -> rax にしている
     printf ("\tleaq L_fmt(%%rip), %%rdi\n"
-            "\tmovslq  %%eax, %%rsi\n"
-            "\tmovb	$0, %%al\n"
+            "\tmovq  %%rax, %%rsi\n"
             "\tcallq  _printf\n"
+            "\tmovb	$0, %%al\n"
             "\tleave\n"
             "\tretq\n");
     return 0;
