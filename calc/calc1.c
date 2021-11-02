@@ -162,8 +162,8 @@ int main (int argc, char *argv []){
     // eax -> rax にしている
     printf ("\tleaq L_fmt(%%rip), %%rdi\n"
             "\tmovq  %%rax, %%rsi\n"
-            "\tcallq  _printf\n"
             "\tmovb	$0, %%al\n"
+            "\tcallq  _printf\n"
             "\tleave\n"
             "\tretq\n");
     return 0;
