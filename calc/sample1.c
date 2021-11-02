@@ -24,8 +24,8 @@ int main (int argc, char *argv [])
     }
     printf ("\tleaq L_fmt(%%rip), %%rdi\n"
             "\tmovslq %%eax, %%rsi\n"
+            "\tmovb $0, %%al\n"
             "\tcall  _printf\n"
-            "\taddq  $16, %%rsp\n"
             "\tleave\n"
             "\tret\n");
 }

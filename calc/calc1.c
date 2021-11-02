@@ -2,163 +2,259 @@
 int cnt = 0;
 void calc(char last_op){
     if(last_op == '+'){
-        printf ("\taddq  %%rbx, %%rax\n");// rbx, raxではダメな理由は？
+        printf ("\taddq  %%r9, %%r8\n");
+        printf ("\tmovq  $0, %%r9\n");
+        last_op = '+';
         return;
     }
     else if(last_op == '-'){
-        printf ("\tsubq  %%rbx, %%rax\n");
+        printf ("\tsubq  %%r9, %%r8\n");
+        printf ("\tmovq  $0, %%r9\n");
+        last_op = '+';
         return;
     }
     else if(last_op == '*'){
-        printf ("\timulq  %%rbx, %%rax\n");
+        // 符号付き掛け算
+        printf ("\tmovq  %%r8, %%rax\n");
+        printf ("\timul  %%r9\n");// rax = rax * r9
+        printf ("\tmovq  $0, %%r9\n");
+        printf ("\tmovq  %%rax, %%r8\n");
+        last_op = '+';
         return;
     }
     else if(last_op == '/'){
-        printf ("\tcmpq  $0, %%rax\n");
-        printf ("\tjae   LBB0_%d\n",cnt);
-        //
-        printf ("\tmovq  $0x8000, %%rdx\n");
-        printf ("\tmovq  $0x8000, %%r8\n");
-        printf ("\txorq  %%r8, %%rbx\n");
-        printf ("\tidivq  %%rbx\n");
-        //
+        // 符号付き割り算
+        printf ("\tmovq  %%r8, %%rax\n");
+        printf ("\tcmpq  $0, %%rax\n"
+                "\tjae   LBB0_%d\n",cnt);
+        // 負の場合 %rax < 0
+        printf ("\tmovq  $0, %%rdx\n");
+        printf ("\tnegq %%rax\n");// 符号反転 rax を正にする
+        printf ("\tnegq %%r9\n");// 符号反転
+        printf ("\tidivq  %%r9\n");
+        printf ("\tmovq  %%rax, %%r8\n");// 結果を格納
         printf ("\tjmp   LBB0_%d\n",cnt+1);
         printf ("LBB0_%d:\n",cnt);
-        //
+        // 正の場合 %rax >= 0
         printf ("\tmovq  $0, %%rdx\n");
-        printf ("\tidivq  %%rbx\n");
+        printf ("\tidivq  %%r9\n");
+        printf ("\tmovq  %%rax, %%r8\n");// 結果を格納
         //
         printf ("LBB0_%d:\n",cnt+1);
         cnt += 2;
-        return;
-    }
-    else if(last_op == '='){
+        last_op = '+';
         return;
     }
     return;
 }
-
-int state_change(int state){ return 1 - state; }
-
-int main (int argc, char *argv []){
-    // variables 
-    char last_op; char *p = argv [1];
+int state_change(int state){
+    return 1 - state;
+}
+//  acc := %r8
+//  num := %r9
+//memory:= %r10
+int main(int argc, char *argv []){
+    char last_op;
+    char *p = argv[1];
     int state = 0;
-    last_op = '+';
-    // 
+    
+    last_op = '+';// 初期値
     printf ("\t.section	__TEXT,__text,regular,pure_instructions\n"
             "\t.globl _main\n"
             "\t.p2align 4, 0x90\n"
             "_main:\n"
             "\tpushq %%rbp\n"
-            "\tmovq  %%rsp, %%rbp\n");
-    printf ("\tmovq  $0, %%rax\n");// rax = 0をセット
-    printf ("\tmovq  $0, %%rcx\n");// memoryの役目
-    while(*p!='\0'){
-        // null文字になるまで読み込む
+            "\tmovq  %%rsp, %%rbp\n"
+            );
+    // 計算に用いるレジスタに値をセット
+    printf ("\tmovq  $0, %%r8\n"
+            "\tmovq  $0, %%r9\n"
+            "\tmovq  $0, %%r10\n"
+            );
+    
+    while(*p != '\0'){
+
         if(state == 0){
-            // state == 0: 演算キー処理直後
-            if('0' <= *p  && *p <= '9'){
-                // 数字キー
+            // state == 0: 演算キー処理後
+
+            if('0' <= *p && *p <= '9'){
+                // 数字キー入力
                 int d = *p - '0';
-                printf ("\tmovq  $%d, %%rbx\n",d);
+                printf ("\tmovq  $%d, %%r9\n", d);// num:=%r9
                 state = state_change(state);
             }
             else if(*p == 'C'){
-                printf ("\tmovq  $0, %%rcx\n");
+                // CM: メモリの値を0にセット
+
+                // 計算の区切れ目にもなるので
+                calc(last_op);
+                printf ("\tmovq $0, %%r9\n");// num=0
+                last_op = '+';
+                // 本来の動作
+                printf ("\tmovq  $0, %%r10\n");
+                // 状態の変化
+                state = 0;
             }
             else if(*p == 'R'){
-                printf ("\tmovq  %%rcx, %%rax\n");// raxの値をmemoryに移動して
-                printf ("\tmovq  $0, %%rcx\n");// rcxの値を0にリセット
+                // RM: メモリの値を現在の計算結果にセット
+
+                // 計算の区切れ目にもなるので
+                calc(last_op);
+                printf ("\tmovq $0, %%r9\n");// num=0
+                last_op = '+';
+                // 本来の動作
+                printf ("\tmovq  %%r10, %%r8\n");// memory -> acc
+                printf ("\tmovq $0, %%r10\n");// memory = 0
+                // 状態の変化
+                state = 0;
             }
             else if(*p == 'P'){
-                p++;
+                // M+: 現在の計算結果をメモリの値に加算
+
+                // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\taddq  %%rax, %%rcx\n");// raxの値をmemoryの役目があるrcxに足し込む
-                printf ("\tmovq  $0, %%rax\n");// raxの値を0にリセット
-                last_op = '+'; state = 0;
-                printf ("\tmovq  $0, %%rbx\n");// rbxの値を0にリセット: numの役割
+                printf ("\tmovq $0, %%r9\n");// num=0
+                last_op = '+';
+                // 本来の動作
+                printf ("\taddq  %%r8, %%r10\n");// memory += acc
+                printf ("\tmovq  $0, %%r8\n"); // acc = 0
+                // 状態の変化
+                state = 0;
             }
             else if(*p == 'M'){
-                p++;
+                // M-: 現在の計算結果をメモリの値から減算
+
+                // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\tsubq  %%rax, %%rcx\n");
-                printf ("\tmovq  $0, %%rax\n");// raxの値を0にリセット
-                last_op = '+'; state = 0;
-                printf ("\tmovq  $0, %%rbx\n");// rbxの値を0にリセット: numの役割
+                printf ("\tmovq $0, %%r9\n");// num=0
+                last_op = '+';
+                // 本来の動作
+                printf ("\tsubq  %%r8, %%r10\n");// memory -= acc
+                printf ("\tmovq  $0, %%r8\n");// acc = 0
+                // 状態の変化
+                state = 0;
             }
             else if(*p == 'S'){
-                // num = num * -1;
-                printf ("\timulq $-1, %%rbx\n");
+                // 符号反転
+
+                // 計算の区切れ目にもなるので
+                calc(last_op);
+                printf ("\tmovq $0, %%r9\n");// num=0
+                last_op = '+';
+                // 本来の動作
+                printf ("\tnegq  %%r9\n"); // num = -1 * num
+                // 状態の変化
+                state = 0;
             }
-            else if(*p == '+' || *p == '-' || *p == '*' || *p == '/' || *p == '='){
-                // 演算キー
-                // 何回もループする可能性があるので
+            else if(*p == '+' || *p == '-' || *p == '*' || *p == '/'){
+                // operator & 終了キー,
                 char op = *p;
                 last_op = op;
+                // 基本は last_op == + となっている
             }
+            else if(*p == '=' || *p == ','){
+                calc(last_op);
+            }
+            // 他の想定されない文字についてはスルーする。
         }
-
         else{
-            // 数字キー処理中 state == 1
-            if('0' <= *p  && *p <= '9'){
+            // state == 1
+            if('0' <= *p && *p <= '9'){
                 int d = *p - '0';
-                printf ("\tcmpq  $0, %%rbx\n");
-                // num >= 0 : -> num = num * 10 + d 
+                printf ("\tcmpq  $0, %%r9\n");
                 printf ("\tjge    LBB0_%d\n",cnt);
-                printf ("\timulq  $10, %%rbx\n");
-                printf ("\tsubq  $%d, %%rbx\n", d);
+                // num < 0 
+                printf ("\timulq  $10, %%r9\n");
+                printf ("\tsubq  $%d, %%r9\n", d);
                 printf ("\tjmp   LBB0_%d\n", cnt+1);
                 printf ("LBB0_%d:\n", cnt);
-                // num < 0: -> num = num * 10 - d
-                printf ("\timulq  $10, %%rbx\n");
-                printf ("\taddq  $%d, %%rbx\n", d);
+                // num >= 0
+                printf ("\timulq  $10, %%r9\n");
+                printf ("\taddq  $%d, %%r9\n", d);
                 printf ("LBB0_%d:\n", cnt+1);
                 cnt += 2;
                 // state 変更なし
             }
             else if(*p == 'C'){
-                printf ("\tmovq  $0, %%rcx\n");
+                // CM: メモリの値を0にセット
+
+                // 計算の区切れ目にもなるので
+                calc(last_op);
+                printf ("\tmovq $0, %%r9\n");// num=0
+                last_op = '+';
+                // 本来の動作
+                printf ("\tmovq  $0, %%r10\n");
+                // 状態の変化
+                state = 0;
             }
             else if(*p == 'R'){
-                printf ("\tmovq  %%rcx, %%rax\n");// rcxの値をraxにset
-                printf ("\tmovq  $0, %%rcx\n");// rcxの値を0にリセット
+                // RM: メモリの値を現在の計算結果にセット
+
+                // 計算の区切れ目にもなるので
+                calc(last_op);
+                printf ("\tmovq $0, %%r9\n");// num=0
+                last_op = '+';
+                // 本来の動作
+                printf ("\tmovq  %%r10, %%r8\n");// memory -> acc
+                printf ("\tmovq $0, %%r10\n");// memory = 0
+                // 状態の変化
+                state = 0;
             }
             else if(*p == 'P'){
-                p++;
+                // M+: 現在の計算結果をメモリの値に加算
+
+                // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\taddq  %%rax, %%rcx\n");// raxの値をmemoryの役目があるrcxに足し込む
-                printf ("\tmovq  $0, %%rax\n");// raxの値を0にリセット
-                last_op = '+'; state = 0;
-                printf ("\tmovq  $0, %%rbx\n");// rbxの値を0にリセット: numの役割
+                printf ("\tmovq $0, %%r9\n");// num=0
+                last_op = '+';
+                // 本来の動作
+                printf ("\taddq  %%r8, %%r10\n");// memory += acc
+                printf ("\tmovq  $0, %%r8\n"); // acc = 0
+                // 状態の変化
+                state = 0;
             }
             else if(*p == 'M'){
-                p++;
+                // M-: 現在の計算結果をメモリの値から減算
+
+                // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\tsubq  %%rax, %%rcx\n");
-                printf ("\tmovq  $0, %%rax\n");// raxの値を0にリセット
-                last_op = '+'; state = 0;
-                printf ("\tmovq  $0, %%rbx\n");// rbxの値を0にリセット: numの役割
+                printf ("\tmovq $0, %%r9\n");// num=0
+                last_op = '+';
+                // 本来の動作
+                printf ("\tsubq  %%r8, %%r10\n");// memory -= acc
+                printf ("\tmovq  $0, %%r8\n");// acc = 0
+                // 状態の変化
+                state = 0;
             }
             else if(*p == 'S'){
-                // num = num * -1;
-                printf ("\timulq $-1, %%rbx\n");
-                // printf ("\tneg %%rbx\n");// 符号反転
-                // でもここがオーバーフローの原因になりそう
+                // 符号反転
+
+                // 計算の区切れ目にもなるので
+                calc(last_op);
+                printf ("\tmovq $0, %%r9\n");// num=0
+                last_op = '+';
+                // 本来の動作
+                printf ("\tnegq  %%r9\n"); // num = -1 * num
+                // 状態の変化
+                state = 0;
             }
-            else if(*p == '+' || *p == '-' || *p == '*' || *p == '/' || *p == '='){
+            else if(*p == '+' || *p == '-' || *p == '*' || *p == '/'){
+                // operator & 終了キー,
                 char op = *p;
                 calc(last_op);
                 last_op = op;
                 state = state_change(state);
             }
+            else if(*p == '=' || *p == ','){
+                calc(last_op);
+            }
+            // その他はスルー
         }
         // increment
         p++;
     }
-    // eax -> rax にしている
     printf ("\tleaq L_.str(%%rip), %%rdi\n"
-            "\tmovq  %%rax, %%rsi\n"
+            "\tmovq  %%r8, %%rsi\n"
             "\tmovb	$0, %%al\n"
             "\tcallq  _printf\n"
             "\tleave\n"
