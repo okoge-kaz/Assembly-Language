@@ -46,12 +46,9 @@ int main (int argc, char *argv []){
     int state = 0;
     last_op = '+';
     // 
-    printf (".data\n"
-            "L_fmt:\n"
-            "\t.ascii \"%%d\\n\\0\"\n"
-            ".text\n"
-            ".globl _main\n"
-            ".p2align 4, 0x90\n"
+    printf ("\t.section	__TEXT,__text,regular,pure_instructions\n"
+            "\t.globl _main\n"
+            "\t.p2align 4, 0x90\n"
             "_main:\n"
             "\tpushq %%rbp\n"
             "\tmovq  %%rsp, %%rbp\n");
@@ -160,11 +157,15 @@ int main (int argc, char *argv []){
         p++;
     }
     // eax -> rax にしている
-    printf ("\tleaq L_fmt(%%rip), %%rdi\n"
+    printf ("\tleaq L_.str(%%rip), %%rdi\n"
             "\tmovq  %%rax, %%rsi\n"
             "\tmovb	$0, %%al\n"
             "\tcallq  _printf\n"
             "\tleave\n"
-            "\tretq\n");
+            "\tretq\n"
+            "\n"
+            "\t.section	__TEXT,__cstring,cstring_literals\n"
+            "L_.str:\n"
+            ".asciz	\"%%d\\n\"");
     return 0;
 }

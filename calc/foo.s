@@ -6,31 +6,47 @@ _main:
 	movq  %rsp, %rbp
 	movq  $0, %rax
 	movq  $0, %rcx
-	movq  $7, %rbx
-	addq  %rbx, %rax
 	movq  $9, %rbx
+	cmpq  $0, %rbx
+	jge    LBB0_0
+	imulq  $10, %rbx
+	subq  $8, %rbx
+	jmp   LBB0_1
+LBB0_0:
+	imulq  $10, %rbx
+	addq  $8, %rbx
+LBB0_1:
 	addq  %rbx, %rax
-	movq  $8, %rbx
+	movq  $1, %rbx
+	cmpq  $0, %rbx
+	jge    LBB0_2
+	imulq  $10, %rbx
+	subq  $7, %rbx
+	jmp   LBB0_3
+LBB0_2:
+	imulq  $10, %rbx
+	addq  $7, %rbx
+LBB0_3:
+	subq  %rbx, %rax
+	movq  $9, %rbx
 	cmpq  $0, %rax
-	jae   LBB0_0
+	jae   LBB0_4
 	movq  $0x8000, %rdx
 	movq  $0x8000, %r8
 	xorq  %r8, %rbx
 	idivq  %rbx
-	jmp   LBB0_1
-LBB0_0:
+	jmp   LBB0_5
+LBB0_4:
 	movq  $0, %rdx
 	idivq  %rbx
-LBB0_1:
-	movq  %rax, %rsi
+LBB0_5:
 	leaq L_.str(%rip), %rdi
+	movq  %rax, %rsi
 	movb	$0, %al
 	callq  _printf
-	xorl	%ecx, %ecx
-	movq %rbp, %rsp
-	popq	%rbp
+	leave
 	retq
 
 	.section	__TEXT,__cstring,cstring_literals
 L_.str:
-	.asciz	"%d\n"
+.asciz	"%d\n"
