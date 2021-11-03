@@ -26,7 +26,7 @@ void calc(char last_op){
         // 符号付き割り算
         printf ("\tmovq  %%r8, %%rax\n");
         printf ("\tcmpq  $0, %%rax\n"
-                "\tjae   LBB0_%d\n",cnt);
+                "\tjge   LBB0_%d\n",cnt);
         // 負の場合 %rax < 0
         printf ("\tmovq  $0, %%rdx\n");
         printf ("\tnegq %%rax\n");// 符号反転 rax を正にする

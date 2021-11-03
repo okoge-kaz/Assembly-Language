@@ -42,7 +42,7 @@ LBB0_3:
 	movq  $4, %r9
 	movq  %r8, %rax
 	cmpq  $0, %rax
-	jae   LBB0_4
+	jge   LBB0_4
 	movq  $0, %rdx
 	negq %rax
 	negq %r9
