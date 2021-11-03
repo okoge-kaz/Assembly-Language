@@ -137,14 +137,9 @@ int main(int argc, char *argv []){
             else if(*p == 'S'){
                 // 符号反転
 
-                // 計算の区切れ目にもなるので
-                calc(last_op);
-                printf ("\tmovq $0, %%r9\n");// num=0
-                last_op = '+';
                 // 本来の動作
                 printf ("\tnegq  %%r9\n"); // num = -1 * num
-                // 状態の変化
-                state = 0;
+                // 状態の変化はしない
             }
             else if(*p == '+' || *p == '-' || *p == '*' || *p == '/'){
                 // operator & 終了キー,
@@ -229,14 +224,9 @@ int main(int argc, char *argv []){
             else if(*p == 'S'){
                 // 符号反転
 
-                // 計算の区切れ目にもなるので
-                calc(last_op);
-                printf ("\tmovq $0, %%r9\n");// num=0
-                last_op = '+';
                 // 本来の動作
                 printf ("\tnegq  %%r9\n"); // num = -1 * num
-                // 状態の変化
-                state = 0;
+                // 状態の変化はしない
             }
             else if(*p == '+' || *p == '-' || *p == '*' || *p == '/'){
                 // operator & 終了キー,
