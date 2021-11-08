@@ -1,26 +1,45 @@
 #include <stdio.h>
 int cnt = 0;
+// Label名が衝突しないために用いているが、これは数値ラベル1fのようにforwardで実装することも可能
+void print_E(){
+    // 条件式
+    printf ("\tjo  LBB0_%d\n",cnt);
+    printf ("\tmovq  $0, %%r9\n");
+    printf ("\tjno  LBB0_%d\n",cnt+1);
+    printf ("LBB0_%d:\n",cnt);
+    printf ("\tmovq  $0, %%r9\n");
+    printf ("\tleaq L_.str(%%rip), %%rdi\n"
+            "\tmovq  'E', %%rsi\n"
+            "\tmovb	$0, %%al\n"
+            "\tcallq  _printf\n"
+            "\tmovl	$1, %%edi\n"
+            "\tmovl	%%eax, -12(%%rbp)\n"
+            "\tcallq	_exit\n"
+            "\n"
+            "\t.section	__TEXT,__cstring,cstring_literals\n"
+            "\t.asciz	\"%%s\\n\"\n"
+            "\n");
+    printf ("LBB0_%d:\n",cnt+1);
+    cnt += 2;
+}
 void calc(char last_op){
     if(last_op == '+'){
         printf ("\taddq  %%r9, %%r8\n");
-        printf ("\tmovq  $0, %%r9\n");
+        print_E();
         last_op = '+';
-        return;
     }
     else if(last_op == '-'){
         printf ("\tsubq  %%r9, %%r8\n");
-        printf ("\tmovq  $0, %%r9\n");
+        print_E();
         last_op = '+';
-        return;
     }
     else if(last_op == '*'){
         // 符号付き掛け算
         printf ("\tmovq  %%r8, %%rax\n");
         printf ("\timul  %%r9\n");// rax = rax * r9
-        printf ("\tmovq  $0, %%r9\n");
         printf ("\tmovq  %%rax, %%r8\n");
+        print_E();
         last_op = '+';
-        return;
     }
     else if(last_op == '/'){
         // 符号付き割り算
@@ -43,7 +62,6 @@ void calc(char last_op){
         printf ("LBB0_%d:\n",cnt+1);
         cnt += 2;
         last_op = '+';
-        return;
     }
     return;
 }
