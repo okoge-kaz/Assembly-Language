@@ -1,3 +1,7 @@
+	.section __DATA,__data
+L_fmt:
+	.asciz "Hello world!\n"
+
 	.section	__TEXT,__text,regular,pure_instructions
 	.globl _main
 	.p2align 4, 0x90
@@ -14,16 +18,14 @@ _main:
 	jno  LBB0_1
 LBB0_0:
 	movq  $0, %r9
-	leaq L_.str(%rip), %rdi
-	movq  %r8, %rsi
+	leaq L_fmt(%rip), %rdi
+	movq  'E', %rsi
 	movb	$0, %al
 	callq  _printf
-	movl	$1, %edi
-	movl	%eax, -12(%rbp)
+	movl	$1, %edi  # exit(1)
 	callq	_exit
-
-	.section	__TEXT,__cstring,cstring_literals
-	.asciz	"E\n"
+	leave
+	retq
 
 LBB0_1:
 	movq  $0, %r9

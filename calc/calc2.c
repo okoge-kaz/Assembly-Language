@@ -8,16 +8,14 @@ void print_E(){
     printf ("\tjno  LBB0_%d\n",cnt+1);
     printf ("LBB0_%d:\n",cnt);
     printf ("\tmovq  $0, %%r9\n");
-    printf ("\tleaq L_.str(%%rip), %%rdi\n"
+    printf ("\tleaq L_fmt(%%rip), %%rdi\n"
             "\tmovq  'E', %%rsi\n"
             "\tmovb	$0, %%al\n"
             "\tcallq  _printf\n"
-            "\tmovl	$1, %%edi\n"
-            "\tmovl	%%eax, -12(%%rbp)\n"
+            "\tmovl	$1, %%edi  # exit(1)\n"
             "\tcallq	_exit\n"
-            "\n"
-            "\t.section	__TEXT,__cstring,cstring_literals\n"
-            "\t.asciz	\"%%s\\n\"\n"
+            "\tleave\n"
+            "\tretq\n"
             "\n");
     printf ("LBB0_%d:\n",cnt+1);
     cnt += 2;
@@ -77,7 +75,11 @@ int main(int argc, char *argv []){
     int state = 0;
     
     last_op = '+';// 初期値
-    printf ("\t.section	__TEXT,__text,regular,pure_instructions\n"
+    printf ("\t.section __DATA,__data\n"
+            "L_fmt:\n"
+            "\t.asciz \"Hello world!\\n\"\n"
+            "\n"
+            "\t.section	__TEXT,__text,regular,pure_instructions\n"
             "\t.globl _main\n"
             "\t.p2align 4, 0x90\n"
             "_main:\n"

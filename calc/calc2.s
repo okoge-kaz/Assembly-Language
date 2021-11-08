@@ -1,3 +1,7 @@
+	.section __DATA,__data
+L_fmt:
+	.asciz "Hello world!\n"
+
 	.section	__TEXT,__text,regular,pure_instructions
 	.globl _main
 	.p2align 4, 0x90
@@ -83,11 +87,11 @@ LBB0_15:
 	cmpq  $0, %r9
 	jge    LBB0_16
 	imulq  $10, %r9
-	subq  $7, %r9
+	subq  $8, %r9
 	jmp   LBB0_17
 LBB0_16:
 	imulq  $10, %r9
-	addq  $7, %r9
+	addq  $8, %r9
 LBB0_17:
 	addq  %r9, %r8
 	jo  LBB0_18
@@ -95,14 +99,14 @@ LBB0_17:
 	jno  LBB0_19
 LBB0_18:
 	movq  $0, %r9
-	leaq L_.str(%rip), %rdi
+	leaq L_fmt(%rip), %rdi
 	movq  'E', %rsi
 	movb	$0, %al
 	callq  _printf
-	movl	$1, %edi
-
-	.section	__TEXT,__cstring,cstring_literals
-	.asciz	"%s\n"
+	movl	$1, %edi  # exit(1)
+	callq	_exit
+	leave
+	retq
 
 LBB0_19:
 	addq  %r9, %r8
@@ -111,14 +115,14 @@ LBB0_19:
 	jno  LBB0_21
 LBB0_20:
 	movq  $0, %r9
-	leaq L_.str(%rip), %rdi
+	leaq L_fmt(%rip), %rdi
 	movq  'E', %rsi
 	movb	$0, %al
 	callq  _printf
-	movl	$1, %edi
-
-	.section	__TEXT,__cstring,cstring_literals
-	.asciz	"%s\n"
+	movl	$1, %edi  # exit(1)
+	callq	_exit
+	leave
+	retq
 
 LBB0_21:
 	leaq L_.str(%rip), %rdi
