@@ -1,13 +1,13 @@
 #include <stdio.h>
 int cnt = 0;
+int count = 0;
 // Label名が衝突しないために用いているが、これは数値ラベル1fのようにforwardで実装することも可能
 void print_E(){
     // 条件式
-    printf ("\tjo  LBB0_%d\n",cnt);
-    printf ("\tmovl  $0, %%r9d\n");
-    printf ("\tjno  LBB0_%d\n",cnt+1);
-    printf ("LBB0_%d:\n",cnt);
-    printf ("\tmovl  $0, %%r9d\n");
+    printf ("\tjo  LBB1_%d\n",count);
+    
+    printf ("\tjno  LBB1_%d\n",count+1);
+    printf ("LBB1_%d:\n",count);
     printf ("\tleaq L_fmt(%%rip), %%rdi\n"
             "\tmovq  'E', %%rsi\n"
             "\tmovb	$0, %%al\n"
@@ -17,26 +17,29 @@ void print_E(){
             "\tleave\n"
             "\tret\n"
             "\n");
-    printf ("LBB0_%d:\n",cnt+1);
-    cnt += 2;
+    printf ("LBB1_%d:\n",count+1);
+    count += 2;
 }
 void calc(char last_op){
     if(last_op == '+'){
         printf ("\taddl  %%r9d, %%r8d\n");
         print_E();
+        printf ("\tmovl  $0, %%r9d\n");
         last_op = '+';
     }
     else if(last_op == '-'){
         printf ("\tsubl  %%r9d, %%r8d\n");
         print_E();
+        printf ("\tmovl  $0, %%r9d\n");
         last_op = '+';
     }
     else if(last_op == '*'){
         // 符号付き掛け算
         printf ("\tmovl  %%r8d, %%eax\n");
         printf ("\timull  %%r9d\n");// rax = rax * r9
-        printf ("\tmovl  %%eax, %%r8d\n");
         print_E();
+        printf ("\tmovl  %%eax, %%r8d\n");
+        printf ("\tmovl  $0, %%r9d\n");
         last_op = '+';
     }
     else if(last_op == '/'){
@@ -49,15 +52,18 @@ void calc(char last_op){
         printf ("\tnegl %%eax\n");// 符号反転 rax を正にする
         printf ("\tnegl %%r9d\n");// 符号反転
         printf ("\tidivl  %%r9d\n");
+        print_E();
         printf ("\tmovl  %%eax, %%r8d\n");// 結果を格納
         printf ("\tjmp   LBB0_%d\n",cnt+1);
         printf ("LBB0_%d:\n",cnt);
         // 正の場合 %rax >= 0
         printf ("\tmovl  $0, %%edx\n");
         printf ("\tidivl  %%r9d\n");
+        print_E();
         printf ("\tmovl  %%eax, %%r8d\n");// 結果を格納
         //
         printf ("LBB0_%d:\n",cnt+1);
+        printf ("\tmovl  $0, %%r9d\n");
         cnt += 2;
         last_op = '+';
     }
