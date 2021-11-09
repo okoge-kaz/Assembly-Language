@@ -8,129 +8,129 @@ L_fmt:
 _main:
 	pushq %rbp
 	movq  %rsp, %rbp
-	movq  $0, %r8
-	movq  $0, %r9
-	movq  $0, %r10
-	movq  $2, %r9
-	cmpq  $0, %r9
+	movl  $0, %r8d
+	movl  $0, %r9d
+	movl  $0, %r10d
+	movl  $2, %r9d
+	cmpl  $0, %r9d
 	jge    LBB0_0
-	imulq  $10, %r9
-	subq  $1, %r9
+	imull  $10, %r9d
+	subl  $1, %r9d
 	jmp   LBB0_1
 LBB0_0:
-	imulq  $10, %r9
-	addq  $1, %r9
+	imull  $10, %r9d
+	addl  $1, %r9d
 LBB0_1:
-	cmpq  $0, %r9
+	cmpl  $0, %r9d
 	jge    LBB0_2
-	imulq  $10, %r9
-	subq  $4, %r9
+	imull  $10, %r9d
+	subl  $4, %r9d
 	jmp   LBB0_3
 LBB0_2:
-	imulq  $10, %r9
-	addq  $4, %r9
+	imull  $10, %r9d
+	addl  $4, %r9d
 LBB0_3:
-	cmpq  $0, %r9
+	cmpl  $0, %r9d
 	jge    LBB0_4
-	imulq  $10, %r9
-	subq  $7, %r9
+	imull  $10, %r9d
+	subl  $7, %r9d
 	jmp   LBB0_5
 LBB0_4:
-	imulq  $10, %r9
-	addq  $7, %r9
+	imull  $10, %r9d
+	addl  $7, %r9d
 LBB0_5:
-	cmpq  $0, %r9
+	cmpl  $0, %r9d
 	jge    LBB0_6
-	imulq  $10, %r9
-	subq  $4, %r9
+	imull  $10, %r9d
+	subl  $4, %r9d
 	jmp   LBB0_7
 LBB0_6:
-	imulq  $10, %r9
-	addq  $4, %r9
+	imull  $10, %r9d
+	addl  $4, %r9d
 LBB0_7:
-	cmpq  $0, %r9
+	cmpl  $0, %r9d
 	jge    LBB0_8
-	imulq  $10, %r9
-	subq  $8, %r9
+	imull  $10, %r9d
+	subl  $8, %r9d
 	jmp   LBB0_9
 LBB0_8:
-	imulq  $10, %r9
-	addq  $8, %r9
+	imull  $10, %r9d
+	addl  $8, %r9d
 LBB0_9:
-	cmpq  $0, %r9
+	cmpl  $0, %r9d
 	jge    LBB0_10
-	imulq  $10, %r9
-	subq  $3, %r9
+	imull  $10, %r9d
+	subl  $3, %r9d
 	jmp   LBB0_11
 LBB0_10:
-	imulq  $10, %r9
-	addq  $3, %r9
+	imull  $10, %r9d
+	addl  $3, %r9d
 LBB0_11:
-	cmpq  $0, %r9
+	cmpl  $0, %r9d
 	jge    LBB0_12
-	imulq  $10, %r9
-	subq  $6, %r9
+	imull  $10, %r9d
+	subl  $6, %r9d
 	jmp   LBB0_13
 LBB0_12:
-	imulq  $10, %r9
-	addq  $6, %r9
+	imull  $10, %r9d
+	addl  $6, %r9d
 LBB0_13:
-	cmpq  $0, %r9
+	cmpl  $0, %r9d
 	jge    LBB0_14
-	imulq  $10, %r9
-	subq  $4, %r9
+	imull  $10, %r9d
+	subl  $4, %r9d
 	jmp   LBB0_15
 LBB0_14:
-	imulq  $10, %r9
-	addq  $4, %r9
+	imull  $10, %r9d
+	addl  $4, %r9d
 LBB0_15:
-	cmpq  $0, %r9
+	cmpl  $0, %r9d
 	jge    LBB0_16
-	imulq  $10, %r9
-	subq  $8, %r9
+	imull  $10, %r9d
+	subl  $7, %r9d
 	jmp   LBB0_17
 LBB0_16:
-	imulq  $10, %r9
-	addq  $8, %r9
+	imull  $10, %r9d
+	addl  $7, %r9d
 LBB0_17:
-	addq  %r9, %r8
+	addl  %r9d, %r8d
 	jo  LBB0_18
-	movq  $0, %r9
+	movl  $0, %r9d
 	jno  LBB0_19
 LBB0_18:
-	movq  $0, %r9
+	movl  $0, %r9d
 	leaq L_fmt(%rip), %rdi
 	movq  'E', %rsi
 	movb	$0, %al
 	callq  _printf
 	movl	$1, %edi  # exit(1)
-	callq	_exit
+	call	_exit
 	leave
-	retq
+	ret
 
 LBB0_19:
-	addq  %r9, %r8
+	addl  %r9d, %r8d
 	jo  LBB0_20
-	movq  $0, %r9
+	movl  $0, %r9d
 	jno  LBB0_21
 LBB0_20:
-	movq  $0, %r9
+	movl  $0, %r9d
 	leaq L_fmt(%rip), %rdi
 	movq  'E', %rsi
 	movb	$0, %al
 	callq  _printf
 	movl	$1, %edi  # exit(1)
-	callq	_exit
+	call	_exit
 	leave
-	retq
+	ret
 
 LBB0_21:
 	leaq L_.str(%rip), %rdi
-	movq  %r8, %rsi
+	movslq  %r8d, %rsi
 	movb	$0, %al
-	callq  _printf
+	call  _printf
 	leave
-	retq
+	ret
 
 	.section	__TEXT,__cstring,cstring_literals
 L_.str:

@@ -4,58 +4,58 @@ int cnt = 0;
 void print_E(){
     // 条件式
     printf ("\tjo  LBB0_%d\n",cnt);
-    printf ("\tmovq  $0, %%r9\n");
+    printf ("\tmovl  $0, %%r9d\n");
     printf ("\tjno  LBB0_%d\n",cnt+1);
     printf ("LBB0_%d:\n",cnt);
-    printf ("\tmovq  $0, %%r9\n");
+    printf ("\tmovl  $0, %%r9d\n");
     printf ("\tleaq L_fmt(%%rip), %%rdi\n"
             "\tmovq  'E', %%rsi\n"
             "\tmovb	$0, %%al\n"
             "\tcallq  _printf\n"
             "\tmovl	$1, %%edi  # exit(1)\n"
-            "\tcallq	_exit\n"
+            "\tcall	_exit\n"
             "\tleave\n"
-            "\tretq\n"
+            "\tret\n"
             "\n");
     printf ("LBB0_%d:\n",cnt+1);
     cnt += 2;
 }
 void calc(char last_op){
     if(last_op == '+'){
-        printf ("\taddq  %%r9, %%r8\n");
+        printf ("\taddl  %%r9d, %%r8d\n");
         print_E();
         last_op = '+';
     }
     else if(last_op == '-'){
-        printf ("\tsubq  %%r9, %%r8\n");
+        printf ("\tsubl  %%r9d, %%r8d\n");
         print_E();
         last_op = '+';
     }
     else if(last_op == '*'){
         // 符号付き掛け算
-        printf ("\tmovq  %%r8, %%rax\n");
-        printf ("\timul  %%r9\n");// rax = rax * r9
-        printf ("\tmovq  %%rax, %%r8\n");
+        printf ("\tmovl  %%r8d, %%eax\n");
+        printf ("\timull  %%r9d\n");// rax = rax * r9
+        printf ("\tmovl  %%eax, %%r8d\n");
         print_E();
         last_op = '+';
     }
     else if(last_op == '/'){
         // 符号付き割り算
-        printf ("\tmovq  %%r8, %%rax\n");
-        printf ("\tcmpq  $0, %%rax\n"
+        printf ("\tmovl  %%r8d, %%eax\n");
+        printf ("\tcmpl  $0, %%eax\n"
                 "\tjge   LBB0_%d\n",cnt);
         // 負の場合 %rax < 0
-        printf ("\tmovq  $0, %%rdx\n");
-        printf ("\tnegq %%rax\n");// 符号反転 rax を正にする
-        printf ("\tnegq %%r9\n");// 符号反転
-        printf ("\tidivq  %%r9\n");
-        printf ("\tmovq  %%rax, %%r8\n");// 結果を格納
+        printf ("\tmovl  $0, %%edx\n");
+        printf ("\tnegl %%eax\n");// 符号反転 rax を正にする
+        printf ("\tnegl %%r9d\n");// 符号反転
+        printf ("\tidivl  %%r9d\n");
+        printf ("\tmovl  %%eax, %%r8d\n");// 結果を格納
         printf ("\tjmp   LBB0_%d\n",cnt+1);
         printf ("LBB0_%d:\n",cnt);
         // 正の場合 %rax >= 0
-        printf ("\tmovq  $0, %%rdx\n");
-        printf ("\tidivq  %%r9\n");
-        printf ("\tmovq  %%rax, %%r8\n");// 結果を格納
+        printf ("\tmovl  $0, %%edx\n");
+        printf ("\tidivl  %%r9d\n");
+        printf ("\tmovl  %%eax, %%r8d\n");// 結果を格納
         //
         printf ("LBB0_%d:\n",cnt+1);
         cnt += 2;
@@ -87,9 +87,9 @@ int main(int argc, char *argv []){
             "\tmovq  %%rsp, %%rbp\n"
             );
     // 計算に用いるレジスタに値をセット
-    printf ("\tmovq  $0, %%r8\n"
-            "\tmovq  $0, %%r9\n"
-            "\tmovq  $0, %%r10\n"
+    printf ("\tmovl  $0, %%r8d\n"
+            "\tmovl  $0, %%r9d\n"
+            "\tmovl  $0, %%r10d\n"
             );
     
     while(*p != '\0'){
@@ -100,7 +100,7 @@ int main(int argc, char *argv []){
             if('0' <= *p && *p <= '9'){
                 // 数字キー入力
                 int d = *p - '0';
-                printf ("\tmovq  $%d, %%r9\n", d);// num:=%r9
+                printf ("\tmovl  $%d, %%r9d\n", d);// num:=%r9
                 state = state_change(state);
             }
             else if(*p == 'C'){
@@ -108,10 +108,10 @@ int main(int argc, char *argv []){
 
                 // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\tmovq $0, %%r9\n");// num=0
+                printf ("\tmovl $0, %%r9d\n");// num=0
                 last_op = '+';
                 // 本来の動作
-                printf ("\tmovq  $0, %%r10\n");
+                printf ("\tmovl  $0, %%r10d\n");
                 // 状態の変化
                 state = 0;
             }
@@ -120,11 +120,11 @@ int main(int argc, char *argv []){
 
                 // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\tmovq $0, %%r9\n");// num=0
+                printf ("\tmovl $0, %%r9d\n");// num=0
                 last_op = '+';
                 // 本来の動作
-                printf ("\tmovq  %%r10, %%r8\n");// memory -> acc
-                printf ("\tmovq $0, %%r10\n");// memory = 0
+                printf ("\tmovl  %%r10d, %%r8d\n");// memory -> acc
+                printf ("\tmovl $0, %%r10d\n");// memory = 0
                 // 状態の変化
                 state = 0;
             }
@@ -133,11 +133,11 @@ int main(int argc, char *argv []){
 
                 // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\tmovq $0, %%r9\n");// num=0
+                printf ("\tmovl $0, %%r9d\n");// num=0
                 last_op = '+';
                 // 本来の動作
-                printf ("\taddq  %%r8, %%r10\n");// memory += acc
-                printf ("\tmovq  $0, %%r8\n"); // acc = 0
+                printf ("\taddl  %%r8d, %%r10d\n");// memory += acc
+                printf ("\tmovl  $0, %%r8d\n"); // acc = 0
                 // 状態の変化
                 state = 0;
             }
@@ -146,11 +146,11 @@ int main(int argc, char *argv []){
 
                 // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\tmovq $0, %%r9\n");// num=0
+                printf ("\tmovl $0, %%r9d\n");// num=0
                 last_op = '+';
                 // 本来の動作
-                printf ("\tsubq  %%r8, %%r10\n");// memory -= acc
-                printf ("\tmovq  $0, %%r8\n");// acc = 0
+                printf ("\tsubl  %%r8d, %%r10d\n");// memory -= acc
+                printf ("\tmovl  $0, %%r8d\n");// acc = 0
                 // 状態の変化
                 state = 0;
             }
@@ -158,7 +158,7 @@ int main(int argc, char *argv []){
                 // 符号反転
 
                 // 本来の動作
-                printf ("\tnegq  %%r9\n"); // num = -1 * num
+                printf ("\tnegl  %%r9d\n"); // num = -1 * num
                 // 状態の変化はしない
             }
             else if(*p == '+' || *p == '-' || *p == '*' || *p == '/'){
@@ -176,16 +176,16 @@ int main(int argc, char *argv []){
             // state == 1
             if('0' <= *p && *p <= '9'){
                 int d = *p - '0';
-                printf ("\tcmpq  $0, %%r9\n");
+                printf ("\tcmpl  $0, %%r9d\n");
                 printf ("\tjge    LBB0_%d\n",cnt);
                 // num < 0 
-                printf ("\timulq  $10, %%r9\n");
-                printf ("\tsubq  $%d, %%r9\n", d);
+                printf ("\timull  $10, %%r9d\n");
+                printf ("\tsubl  $%d, %%r9d\n", d);
                 printf ("\tjmp   LBB0_%d\n", cnt+1);
                 printf ("LBB0_%d:\n", cnt);
                 // num >= 0
-                printf ("\timulq  $10, %%r9\n");
-                printf ("\taddq  $%d, %%r9\n", d);
+                printf ("\timull  $10, %%r9d\n");
+                printf ("\taddl  $%d, %%r9d\n", d);
                 printf ("LBB0_%d:\n", cnt+1);
                 cnt += 2;
                 // state 変更なし
@@ -195,10 +195,10 @@ int main(int argc, char *argv []){
 
                 // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\tmovq $0, %%r9\n");// num=0
+                printf ("\tmovl $0, %%r9d\n");// num=0
                 last_op = '+';
                 // 本来の動作
-                printf ("\tmovq  $0, %%r10\n");
+                printf ("\tmovl  $0, %%r10d\n");
                 // 状態の変化
                 state = 0;
             }
@@ -207,11 +207,11 @@ int main(int argc, char *argv []){
 
                 // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\tmovq $0, %%r9\n");// num=0
+                printf ("\tmovl $0, %%r9d\n");// num=0
                 last_op = '+';
                 // 本来の動作
-                printf ("\tmovq  %%r10, %%r8\n");// memory -> acc
-                printf ("\tmovq $0, %%r10\n");// memory = 0
+                printf ("\tmovl  %%r10d, %%r8d\n");// memory -> acc
+                printf ("\tmovl $0, %%r10d\n");// memory = 0
                 // 状態の変化
                 state = 0;
             }
@@ -220,11 +220,11 @@ int main(int argc, char *argv []){
 
                 // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\tmovq $0, %%r9\n");// num=0
+                printf ("\tmovl $0, %%r9d\n");// num=0
                 last_op = '+';
                 // 本来の動作
-                printf ("\taddq  %%r8, %%r10\n");// memory += acc
-                printf ("\tmovq  $0, %%r8\n"); // acc = 0
+                printf ("\taddl  %%r8d, %%r10d\n");// memory += acc
+                printf ("\tmovl  $0, %%r8d\n"); // acc = 0
                 // 状態の変化
                 state = 0;
             }
@@ -233,11 +233,11 @@ int main(int argc, char *argv []){
 
                 // 計算の区切れ目にもなるので
                 calc(last_op);
-                printf ("\tmovq $0, %%r9\n");// num=0
+                printf ("\tmovl $0, %%r9d\n");// num=0
                 last_op = '+';
                 // 本来の動作
-                printf ("\tsubq  %%r8, %%r10\n");// memory -= acc
-                printf ("\tmovq  $0, %%r8\n");// acc = 0
+                printf ("\tsubl  %%r8d, %%r10d\n");// memory -= acc
+                printf ("\tmovl  $0, %%r8d\n");// acc = 0
                 // 状態の変化
                 state = 0;
             }
@@ -245,7 +245,7 @@ int main(int argc, char *argv []){
                 // 符号反転
 
                 // 本来の動作
-                printf ("\tnegq  %%r9\n"); // num = -1 * num
+                printf ("\tnegl  %%r9d\n"); // num = -1 * num
                 // 状態の変化はしない
             }
             else if(*p == '+' || *p == '-' || *p == '*' || *p == '/'){
@@ -264,11 +264,11 @@ int main(int argc, char *argv []){
         p++;
     }
     printf ("\tleaq L_.str(%%rip), %%rdi\n"
-            "\tmovq  %%r8, %%rsi\n"
+            "\tmovslq  %%r8d, %%rsi\n"
             "\tmovb	$0, %%al\n"
-            "\tcallq  _printf\n"
+            "\tcall  _printf\n"
             "\tleave\n"
-            "\tretq\n"
+            "\tret\n"
             "\n"
             "\t.section	__TEXT,__cstring,cstring_literals\n"
             "L_.str:\n"
