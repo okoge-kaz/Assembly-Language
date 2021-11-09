@@ -59,11 +59,8 @@ void mul(){
         mul_cnt += 2;
     }
 }
-void input_number_mul(){
-
-}
 void div(){
-
+    
 }
 void calc(char last_op){
     if(last_op == '+'){
@@ -237,7 +234,8 @@ int main(int argc, char *argv []){
                 // num < 0 
                 printf ("\tnegl %%r9d\n");// 符号反転 -> 正の整数
                 print_E();
-                printf ("\tmovl  $10, %%eax\n");
+                printf ("\tmovl %%r9d, %%eax\n");
+                printf ("\tmovl  $10, %%r9d\n");
                 mul();
                 printf ("\tmovl %%eax, %%r9d\n");
                 printf ("\tnegl %%r9d\n");// 符号反転 元に戻す
@@ -247,10 +245,11 @@ int main(int argc, char *argv []){
                 printf ("\tjmp   LBB0_%d\n", cnt+1);
                 printf ("LBB0_%d:\n", cnt);
                 // num >= 0
-                printf ("\tmovl  $10, %%eax\n");
+                printf ("\tmovl %%r9d, %%eax\n");
+                printf ("\tmovl  $10, %%r9d\n");
                 mul();
                 printf ("\tmovl %%eax, %%r9d\n");
-                print_E();
+                // print_E();
                 printf ("\taddl  $%d, %%r9d\n", d);
                 print_E();
                 printf ("LBB0_%d:\n", cnt+1);
