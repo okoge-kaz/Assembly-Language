@@ -20,6 +20,24 @@ void print_E(){
     printf ("LBB1_%d:\n",count+1);
     count += 2;
 }
+void print_E_floating_exception(){
+    printf ("\tcmpl  $0, %%r9d\n");
+    printf ("\tje  LBB1_%d\n",count);
+    
+    printf ("\tjne  LBB1_%d\n",count+1);
+    printf ("LBB1_%d:\n",count);
+    printf ("\tleaq L_fmt(%%rip), %%rdi\n"
+            "\tmovq  L_fmt(%%rip), %%rsi\n"
+            "\tmovb	$0, %%al\n"
+            "\tcallq  _printf\n"
+            "\tmovl	$1, %%edi  # exit(1)\n"
+            "\tcall	_exit\n"
+            "\tleave\n"
+            "\tret\n"
+            "\n");
+    printf ("LBB1_%d:\n",count+1);
+    count += 2;
+}
 void calc(char last_op){
     if(last_op == '+'){
         printf ("\taddl  %%r9d, %%r8d\n");
@@ -44,6 +62,7 @@ void calc(char last_op){
     }
     else if(last_op == '/'){
         // 符号付き割り算
+        print_E_floating_exception();
         printf ("\tmovl  %%r8d, %%eax\n");
         printf ("\tcmpl  $0, %%eax\n"
                 "\tjge   LBB0_%d\n",cnt);
