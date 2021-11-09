@@ -1,6 +1,8 @@
 #include <stdio.h>
 int cnt = 0;
 int count = 0;
+int mul_cnt = 0;
+int div_cnt = 0;
 // Label名が衝突しないために用いているが、これは数値ラベル1fのようにforwardで実装することも可能
 void print_E(){
     // 条件式
@@ -38,6 +40,30 @@ void print_E_floating_exception(){
     printf ("LBB1_%d:\n",count+1);
     count += 2;
 }
+void mul(){
+    printf ("\tmovl %%eax, %%r11d\n");
+    printf ("\tmovl $0, %%eax\n");
+    for(int i=0;i<16;i++){// 16bitなので
+        printf ("rorl  %%r9d\n");
+        printf ("\tjc  LBB2_%d\n", mul_cnt);
+        printf ("\tjnc  LBB2_%d\n", mul_cnt+1);
+        printf ("LBB2_%d:\n",mul_cnt);
+        printf ("\taddl %%r11d, %%eax\n");
+        print_E();
+        printf ("LBB2_%d:\n",mul_cnt+1);
+        if(i<15){
+            printf ("\troll %%r11d\n");
+            print_E();
+        }
+        mul_cnt += 2;
+    }
+}
+void input_number_mul(){
+    
+}
+void div(){
+
+}
 void calc(char last_op){
     if(last_op == '+'){
         printf ("\taddl  %%r9d, %%r8d\n");
@@ -54,8 +80,9 @@ void calc(char last_op){
     else if(last_op == '*'){
         // 符号付き掛け算
         printf ("\tmovl  %%r8d, %%eax\n");
-        printf ("\timull  %%r9d\n");// rax = rax * r9
-        print_E();
+        // printf ("\timull  %%r9d\n");// rax = rax * r9
+        mul();
+        // print_E();
         printf ("\tmovl  %%eax, %%r8d\n");
         printf ("\tmovl  $0, %%r9d\n");
         last_op = '+';
