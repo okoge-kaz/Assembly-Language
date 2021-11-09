@@ -42,9 +42,10 @@ void print_E_floating_exception(){
 }
 void mul(){
     printf ("\tmovl %%eax, %%r11d\n");
+    printf ("\tmovl %%r9d, %%r12d\n");
     printf ("\tmovl $0, %%eax\n");
     for(int i=0;i<16;i++){// 16bitなので
-        printf ("rorl  %%r9d\n");
+        printf ("rorl  %%r12d\n");
         printf ("\tjc  LBB2_%d\n", mul_cnt);
         printf ("\tjnc  LBB2_%d\n", mul_cnt+1);
         printf ("LBB2_%d:\n",mul_cnt);
@@ -52,14 +53,14 @@ void mul(){
         print_E();
         printf ("LBB2_%d:\n",mul_cnt+1);
         if(i<15){
-            printf ("\troll %%r11d\n");
-            print_E();
+            printf ("\tsall %%r11d\n");
+            // print_E();
         }
         mul_cnt += 2;
     }
 }
 void input_number_mul(){
-    
+
 }
 void div(){
 
@@ -234,14 +235,21 @@ int main(int argc, char *argv []){
                 printf ("\tcmpl  $0, %%r9d\n");
                 printf ("\tjge    LBB0_%d\n",cnt);
                 // num < 0 
-                printf ("\timull  $10, %%r9d\n");
+                printf ("\tnegl %%r9d\n");// 符号反転 -> 正の整数
+                print_E();
+                printf ("\tmovl  $10, %%eax\n");
+                mul();
+                printf ("\tmovl %%eax, %%r9d\n");
+                printf ("\tnegl %%r9d\n");// 符号反転 元に戻す
                 print_E();
                 printf ("\tsubl  $%d, %%r9d\n", d);
                 print_E();
                 printf ("\tjmp   LBB0_%d\n", cnt+1);
                 printf ("LBB0_%d:\n", cnt);
                 // num >= 0
-                printf ("\timull  $10, %%r9d\n");
+                printf ("\tmovl  $10, %%eax\n");
+                mul();
+                printf ("\tmovl %%eax, %%r9d\n");
                 print_E();
                 printf ("\taddl  $%d, %%r9d\n", d);
                 print_E();
