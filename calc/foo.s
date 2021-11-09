@@ -1,6 +1,6 @@
 	.section __DATA,__data
 L_fmt:
-	.asciz "Hello world!\n"
+	.asciz "E\n"
 
 	.section	__TEXT,__text,regular,pure_instructions
 	.globl _main
@@ -17,7 +17,7 @@ _main:
 	jno  LBB1_1
 LBB1_0:
 	leaq L_fmt(%rip), %rdi
-	movq  'E', %rsi
+	movq  L_fmt(%rip), %rsi
 	movb	$0, %al
 	callq  _printf
 	movl	$1, %edi  # exit(1)
@@ -39,7 +39,7 @@ LBB1_1:
 	jno  LBB1_3
 LBB1_2:
 	leaq L_fmt(%rip), %rdi
-	movq  'E', %rsi
+	movq  L_fmt(%rip), %rsi
 	movb	$0, %al
 	callq  _printf
 	movl	$1, %edi  # exit(1)
@@ -57,7 +57,7 @@ LBB0_0:
 	jno  LBB1_5
 LBB1_4:
 	leaq L_fmt(%rip), %rdi
-	movq  'E', %rsi
+	movq  L_fmt(%rip), %rsi
 	movb	$0, %al
 	callq  _printf
 	movl	$1, %edi  # exit(1)

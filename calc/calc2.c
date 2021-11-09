@@ -9,7 +9,7 @@ void print_E(){
     printf ("\tjno  LBB1_%d\n",count+1);
     printf ("LBB1_%d:\n",count);
     printf ("\tleaq L_fmt(%%rip), %%rdi\n"
-            "\tmovq  'E', %%rsi\n"
+            "\tmovq  L_fmt(%%rip), %%rsi\n"
             "\tmovb	$0, %%al\n"
             "\tcallq  _printf\n"
             "\tmovl	$1, %%edi  # exit(1)\n"
@@ -83,7 +83,7 @@ int main(int argc, char *argv []){
     last_op = '+';// 初期値
     printf ("\t.section __DATA,__data\n"
             "L_fmt:\n"
-            "\t.asciz \"Hello world!\\n\"\n"
+            "\t.asciz \"E\\n\"\n"
             "\n"
             "\t.section	__TEXT,__text,regular,pure_instructions\n"
             "\t.globl _main\n"
