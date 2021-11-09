@@ -13,11 +13,9 @@ _main:
 	movl  $0, %r10d
 	movl  $2, %r9d
 	addl  %r9d, %r8d
-	jo  LBB0_0
-	movl  $0, %r9d
-	jno  LBB0_1
-LBB0_0:
-	movl  $0, %r9d
+	jo  LBB1_0
+	jno  LBB1_1
+LBB1_0:
 	leaq L_fmt(%rip), %rdi
 	movq  'E', %rsi
 	movb	$0, %al
@@ -27,22 +25,50 @@ LBB0_0:
 	leave
 	ret
 
-LBB0_1:
+LBB1_1:
+	movl  $0, %r9d
 	movl  $0, %r9d
 	movl  %r8d, %eax
 	cmpl  $0, %eax
-	jge   LBB0_2
+	jge   LBB0_0
 	movl  $0, %edx
 	negl %eax
 	negl %r9d
 	idivl  %r9d
+	jo  LBB1_2
+	jno  LBB1_3
+LBB1_2:
+	leaq L_fmt(%rip), %rdi
+	movq  'E', %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_3:
 	movl  %eax, %r8d
-	jmp   LBB0_3
-LBB0_2:
+	jmp   LBB0_1
+LBB0_0:
 	movl  $0, %edx
 	idivl  %r9d
+	jo  LBB1_4
+	jno  LBB1_5
+LBB1_4:
+	leaq L_fmt(%rip), %rdi
+	movq  'E', %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_5:
 	movl  %eax, %r8d
-LBB0_3:
+LBB0_1:
+	movl  $0, %r9d
 	leaq L_.str(%rip), %rdi
 	movslq  %r8d, %rsi
 	movb	$0, %al

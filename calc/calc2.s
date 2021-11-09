@@ -87,11 +87,11 @@ LBB0_15:
 	cmpl  $0, %r9d
 	jge    LBB0_16
 	imull  $10, %r9d
-	subl  $7, %r9d
+	subl  $8, %r9d
 	jmp   LBB0_17
 LBB0_16:
 	imull  $10, %r9d
-	addl  $7, %r9d
+	addl  $8, %r9d
 LBB0_17:
 	addl  %r9d, %r8d
 	jo  LBB0_18
