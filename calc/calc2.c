@@ -143,6 +143,7 @@ int main(int argc, char *argv []){
                 last_op = '+';
                 // 本来の動作
                 printf ("\taddl  %%r8d, %%r10d\n");// memory += acc
+                print_E();
                 printf ("\tmovl  $0, %%r8d\n"); // acc = 0
                 // 状態の変化
                 state = 0;
@@ -156,6 +157,7 @@ int main(int argc, char *argv []){
                 last_op = '+';
                 // 本来の動作
                 printf ("\tsubl  %%r8d, %%r10d\n");// memory -= acc
+                print_E();
                 printf ("\tmovl  $0, %%r8d\n");// acc = 0
                 // 状態の変化
                 state = 0;
@@ -165,6 +167,7 @@ int main(int argc, char *argv []){
 
                 // 本来の動作
                 printf ("\tnegl  %%r9d\n"); // num = -1 * num
+                print_E();
                 // 状態の変化はしない
             }
             else if(*p == '+' || *p == '-' || *p == '*' || *p == '/'){
@@ -186,12 +189,16 @@ int main(int argc, char *argv []){
                 printf ("\tjge    LBB0_%d\n",cnt);
                 // num < 0 
                 printf ("\timull  $10, %%r9d\n");
+                print_E();
                 printf ("\tsubl  $%d, %%r9d\n", d);
+                print_E();
                 printf ("\tjmp   LBB0_%d\n", cnt+1);
                 printf ("LBB0_%d:\n", cnt);
                 // num >= 0
                 printf ("\timull  $10, %%r9d\n");
+                print_E();
                 printf ("\taddl  $%d, %%r9d\n", d);
+                print_E();
                 printf ("LBB0_%d:\n", cnt+1);
                 cnt += 2;
                 // state 変更なし
@@ -230,6 +237,7 @@ int main(int argc, char *argv []){
                 last_op = '+';
                 // 本来の動作
                 printf ("\taddl  %%r8d, %%r10d\n");// memory += acc
+                print_E();
                 printf ("\tmovl  $0, %%r8d\n"); // acc = 0
                 // 状態の変化
                 state = 0;
@@ -243,6 +251,7 @@ int main(int argc, char *argv []){
                 last_op = '+';
                 // 本来の動作
                 printf ("\tsubl  %%r8d, %%r10d\n");// memory -= acc
+                print_E();
                 printf ("\tmovl  $0, %%r8d\n");// acc = 0
                 // 状態の変化
                 state = 0;
@@ -252,6 +261,7 @@ int main(int argc, char *argv []){
 
                 // 本来の動作
                 printf ("\tnegl  %%r9d\n"); // num = -1 * num
+                print_E();
                 // 状態の変化はしない
             }
             else if(*p == '+' || *p == '-' || *p == '*' || *p == '/'){
