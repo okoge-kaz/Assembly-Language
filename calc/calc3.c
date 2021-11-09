@@ -3,6 +3,7 @@ int cnt = 0;
 int count = 0;
 int mul_cnt = 0;
 int div_cnt = 0;
+int div_in_cnt = 0;
 // Label名が衝突しないために用いているが、これは数値ラベル1fのようにforwardで実装することも可能
 void print_E(){
     // 条件式
@@ -60,7 +61,61 @@ void mul(){
     }
 }
 void div(){
-    
+    printf ("\tmovl  $0, %%r12d\n"); // わられる数を格納
+    printf ("\tmovl  $0, %%r13d\n"); // 答えを格納
+    printf ("\tmovl  %%eax, %%r14d\n");// わられる数の一時保管
+    // %%r9dが負のとき
+    printf ("\tcmpl  $0, %%r9d\n");
+    printf ("\tjge   LBB3_%d\n",div_cnt);
+    printf ("\tnegl %%r9d\n");// 符号反転
+    for(int i=0;i<16;i++){// 16bit なので
+        printf ("\tshl  %%r12d\n");// わられる数をシフト
+        printf ("\tshl  %%r14d\n");
+        printf ("\tjc  LBB4_%d\n", div_in_cnt);
+        printf ("\tjnc  LBB4_%d\n", div_in_cnt+1);
+        printf ("LBB4_%d:\n",div_in_cnt);
+        printf ("\taddl $1, %%r12d\n");
+        printf ("LBB4_%d:\n",div_in_cnt+1);
+        div_in_cnt += 2;
+        // 
+        printf ("\tcmpl  %%r9d, %%r12d\n");
+        printf ("\tjge LBB5_%d\n", div_in_cnt);
+        printf ("\tjl LBB5_%d\n", div_in_cnt+1);
+        printf ("LBB5_%d:\n", div_in_cnt);
+        printf ("\tsubl  %%r9d, %%r12d\n");
+        printf ("\tshl  %%r13d\n");
+        printf ("\taddl  $1, %%r13d\n");
+        printf ("LBB5_%d:\n", div_in_cnt+1);
+        div_in_cnt += 2;
+    }
+    printf ("\tnegl %%r13d\n");// 符号反転
+    // %%r9dが正のとき
+    printf ("\tjmp   LBB3_%d\n",div_cnt+1);
+    printf ("LBB3_%d:\n",div_cnt);
+    for(int i=0;i<16;i++){// 16bit なので
+        printf ("\tshl  %%r12d\n");// わられる数をシフト
+        printf ("\tshl  %%r14d\n");
+        printf ("\tjc  LBB4_%d\n", div_in_cnt);
+        printf ("\tjnc  LBB4_%d\n", div_in_cnt+1);
+        printf ("LBB4_%d:\n",div_in_cnt);
+        printf ("\taddl $1, %%r12d\n");
+        printf ("LBB4_%d:\n",div_in_cnt+1);
+        div_in_cnt += 2;
+        // 
+        printf ("\tcmpl  %%r9d, %%r12d\n");
+        printf ("\tjge LBB5_%d\n", div_in_cnt);
+        printf ("\tjl LBB5_%d\n", div_in_cnt+1);
+        printf ("LBB5_%d:\n", div_in_cnt);
+        printf ("\tsubl  %%r9d, %%r12d\n");
+        printf ("\tshl  %%r13d\n");
+        printf ("\taddl  $1, %%r13d\n");
+        printf ("LBB5_%d:\n", div_in_cnt+1);
+        div_in_cnt += 2;
+    }
+    printf ("LBB3_%d:\n",div_cnt+1);
+    // 答えを移動
+    printf ("\tmovl %%r13d, %%eax\n"); // r13d -> eaxに移動
+    div_cnt += 2;
 }
 void calc(char last_op){
     if(last_op == '+'){
@@ -95,14 +150,16 @@ void calc(char last_op){
         printf ("\tmovl  $0, %%edx\n");
         printf ("\tnegl %%eax\n");// 符号反転 rax を正にする
         printf ("\tnegl %%r9d\n");// 符号反転
-        printf ("\tidivl  %%r9d\n");
+        // printf ("\tidivl  %%r9d\n");
+        div();
         print_E();
         printf ("\tmovl  %%eax, %%r8d\n");// 結果を格納
         printf ("\tjmp   LBB0_%d\n",cnt+1);
         printf ("LBB0_%d:\n",cnt);
         // 正の場合 %rax >= 0
         printf ("\tmovl  $0, %%edx\n");
-        printf ("\tidivl  %%r9d\n");
+        // printf ("\tidivl  %%r9d\n");
+        div();
         print_E();
         printf ("\tmovl  %%eax, %%r8d\n");// 結果を格納
         //
