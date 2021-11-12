@@ -61,31 +61,32 @@ void mul(){
     }
 }
 void div(){
+    // eax は必ず 正, 
     printf ("\tmovl  $0, %%r12d\n"); // わられる数を格納
     printf ("\tmovl  $0, %%r13d\n"); // 答えを格納
     printf ("\tmovl  %%eax, %%r14d\n");// わられる数の一時保管
-    // %%r9dが負のとき
     printf ("\tcmpl  $0, %%r9d\n");
     printf ("\tjge   LBB3_%d\n",div_cnt);
+    // %%r9dが負のとき
     printf ("\tnegl %%r9d\n");// 符号反転
     for(int i=0;i<16;i++){// 16bit なので
         printf ("\tshl  %%r12d\n");// わられる数をシフト
+        printf ("\tshl  %%r13d\n");
         printf ("\tshl  %%r14d\n");
-        printf ("\tjc  LBB4_%d\n", div_in_cnt);
+        printf ("\tjc  LBB4_%d\n", div_in_cnt);// CFフラグを見るのでr14dがここ
         printf ("\tjnc  LBB4_%d\n", div_in_cnt+1);
         printf ("LBB4_%d:\n",div_in_cnt);
         printf ("\taddl $1, %%r12d\n");
         printf ("LBB4_%d:\n",div_in_cnt+1);
         div_in_cnt += 2;
         // 
-        printf ("\tcmpl  %%r9d, %%r12d\n");
-        printf ("\tjge LBB5_%d\n", div_in_cnt);
-        printf ("\tjl LBB5_%d\n", div_in_cnt+1);
-        printf ("LBB5_%d:\n", div_in_cnt);
+        printf ("\tcmpl  %%r9d, %%r12d\n");// r12d >= r9d だったら
+        printf ("\tjge LBB4_%d\n", div_in_cnt);
+        printf ("\tjl LBB4_%d\n", div_in_cnt+1);
+        printf ("LBB4_%d:\n", div_in_cnt);
         printf ("\tsubl  %%r9d, %%r12d\n");
-        printf ("\tshl  %%r13d\n");
         printf ("\taddl  $1, %%r13d\n");
-        printf ("LBB5_%d:\n", div_in_cnt+1);
+        printf ("LBB4_%d:\n", div_in_cnt+1);
         div_in_cnt += 2;
     }
     printf ("\tnegl %%r13d\n");// 符号反転
@@ -94,7 +95,8 @@ void div(){
     printf ("LBB3_%d:\n",div_cnt);
     for(int i=0;i<16;i++){// 16bit なので
         printf ("\tshl  %%r12d\n");// わられる数をシフト
-        printf ("\tshl  %%r14d\n");
+        printf ("\tshl  %%r13d\n");
+        printf ("\tshl  %%r14d\n");// CFフラグを見るのでr14dがここ
         printf ("\tjc  LBB4_%d\n", div_in_cnt);
         printf ("\tjnc  LBB4_%d\n", div_in_cnt+1);
         printf ("LBB4_%d:\n",div_in_cnt);
@@ -103,13 +105,12 @@ void div(){
         div_in_cnt += 2;
         // 
         printf ("\tcmpl  %%r9d, %%r12d\n");
-        printf ("\tjge LBB5_%d\n", div_in_cnt);
-        printf ("\tjl LBB5_%d\n", div_in_cnt+1);
-        printf ("LBB5_%d:\n", div_in_cnt);
+        printf ("\tjge LBB4_%d\n", div_in_cnt);
+        printf ("\tjl LBB4_%d\n", div_in_cnt+1);
+        printf ("LBB4_%d:\n", div_in_cnt);
         printf ("\tsubl  %%r9d, %%r12d\n");
-        printf ("\tshl  %%r13d\n");
         printf ("\taddl  $1, %%r13d\n");
-        printf ("LBB5_%d:\n", div_in_cnt+1);
+        printf ("LBB4_%d:\n", div_in_cnt+1);
         div_in_cnt += 2;
     }
     printf ("LBB3_%d:\n",div_cnt+1);
@@ -117,6 +118,7 @@ void div(){
     printf ("\tmovl %%r13d, %%eax\n"); // r13d -> eaxに移動
     div_cnt += 2;
 }
+
 void calc(char last_op){
     if(last_op == '+'){
         printf ("\taddl  %%r9d, %%r8d\n");
@@ -152,7 +154,7 @@ void calc(char last_op){
         printf ("\tnegl %%r9d\n");// 符号反転
         // printf ("\tidivl  %%r9d\n");
         div();
-        print_E();
+        // print_E();
         printf ("\tmovl  %%eax, %%r8d\n");// 結果を格納
         printf ("\tjmp   LBB0_%d\n",cnt+1);
         printf ("LBB0_%d:\n",cnt);
@@ -160,7 +162,7 @@ void calc(char last_op){
         printf ("\tmovl  $0, %%edx\n");
         // printf ("\tidivl  %%r9d\n");
         div();
-        print_E();
+        // print_E();
         printf ("\tmovl  %%eax, %%r8d\n");// 結果を格納
         //
         printf ("LBB0_%d:\n",cnt+1);
