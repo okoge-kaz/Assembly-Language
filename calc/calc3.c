@@ -61,7 +61,10 @@ void mul(){
     }
 }
 void div(){
-    // eax は必ず 正, 
+    // eax は必ず 正
+    // r12d: 割られる数の現在値
+    // r13d: 答え
+    // r14d: 割られる数をコピーしてきたところ
     printf ("\tmovl  $0, %%r12d\n"); // わられる数を格納
     printf ("\tmovl  $0, %%r13d\n"); // 答えを格納
     printf ("\tmovl  %%eax, %%r14d\n");// わられる数の一時保管
