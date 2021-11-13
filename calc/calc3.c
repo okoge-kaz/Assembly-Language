@@ -73,9 +73,9 @@ void div(){
     // %%r9dが負のとき
     printf ("\tnegl %%r9d\n");// 符号反転
     for(int i=0;i<16;i++){// 16bit なので
-        printf ("\tshl  %%r12d\n");// わられる数をシフト
-        printf ("\tshl  %%r13d\n");
-        printf ("\tshl  %%r14d\n");
+        printf ("\tshll  %%r12d\n");// わられる数をシフト
+        printf ("\tshll  %%r13d\n");
+        printf ("\tshll  %%r14d\n");
         printf ("\tjc  LBB4_%d\n", div_in_cnt);// CFフラグを見るのでr14dがここ
         printf ("\tjmp  LBB4_%d\n", div_in_cnt+1);
         printf ("LBB4_%d:\n",div_in_cnt);
@@ -97,9 +97,9 @@ void div(){
     printf ("\tjmp   LBB3_%d\n",div_cnt+1);
     printf ("LBB3_%d:\n",div_cnt);
     for(int i=0;i<16;i++){// 16bit なので
-        printf ("\tshl  %%r12d\n");// わられる数をシフト
-        printf ("\tshl  %%r13d\n");
-        printf ("\tshl  %%r14d\n");// CFフラグを見るのでr14dがここ
+        printf ("\tshll  %%r12d\n");// わられる数をシフト
+        printf ("\tshll  %%r13d\n");
+        printf ("\tshll  %%r14d\n");// CFフラグを見るのでr14dがここ
         printf ("\tjc  LBB4_%d\n", div_in_cnt);
         printf ("\tjmp  LBB4_%d\n", div_in_cnt+1);
         printf ("LBB4_%d:\n",div_in_cnt);
