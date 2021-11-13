@@ -77,7 +77,7 @@ void div(){
         printf ("\tshl  %%r13d\n");
         printf ("\tshl  %%r14d\n");
         printf ("\tjc  LBB4_%d\n", div_in_cnt);// CFフラグを見るのでr14dがここ
-        printf ("\tjnc  LBB4_%d\n", div_in_cnt+1);
+        printf ("\tjmp  LBB4_%d\n", div_in_cnt+1);
         printf ("LBB4_%d:\n",div_in_cnt);
         printf ("\taddl $1, %%r12d\n");
         printf ("LBB4_%d:\n",div_in_cnt+1);
@@ -85,7 +85,7 @@ void div(){
         // 
         printf ("\tcmpl  %%r9d, %%r12d\n");// r12d >= r9d だったら
         printf ("\tjge LBB4_%d\n", div_in_cnt);
-        printf ("\tjl LBB4_%d\n", div_in_cnt+1);
+        printf ("\tjmp LBB4_%d\n", div_in_cnt+1);
         printf ("LBB4_%d:\n", div_in_cnt);
         printf ("\tsubl  %%r9d, %%r12d\n");
         printf ("\taddl  $1, %%r13d\n");
@@ -101,7 +101,7 @@ void div(){
         printf ("\tshl  %%r13d\n");
         printf ("\tshl  %%r14d\n");// CFフラグを見るのでr14dがここ
         printf ("\tjc  LBB4_%d\n", div_in_cnt);
-        printf ("\tjnc  LBB4_%d\n", div_in_cnt+1);
+        printf ("\tjmp  LBB4_%d\n", div_in_cnt+1);
         printf ("LBB4_%d:\n",div_in_cnt);
         printf ("\taddl $1, %%r12d\n");
         printf ("LBB4_%d:\n",div_in_cnt+1);
@@ -109,7 +109,7 @@ void div(){
         // 
         printf ("\tcmpl  %%r9d, %%r12d\n");
         printf ("\tjge LBB4_%d\n", div_in_cnt);
-        printf ("\tjl LBB4_%d\n", div_in_cnt+1);
+        printf ("\tjmp LBB4_%d\n", div_in_cnt+1);
         printf ("LBB4_%d:\n", div_in_cnt);
         printf ("\tsubl  %%r9d, %%r12d\n");
         printf ("\taddl  $1, %%r13d\n");
