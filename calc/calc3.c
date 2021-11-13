@@ -81,15 +81,14 @@ void div(){
         printf ("LBB4_%d:\n",div_in_cnt);
         printf ("\taddl $1, %%r12d\n");
         printf ("LBB4_%d:\n",div_in_cnt+1);
-        div_in_cnt += 2;
-        // 
+        //
         printf ("\tcmpl  %%r9d, %%r12d\n");// r12d >= r9d だったら
-        printf ("\tjge LBB4_%d\n", div_in_cnt);
-        printf ("\tjmp LBB4_%d\n", div_in_cnt+1);
-        printf ("LBB4_%d:\n", div_in_cnt);
+        printf ("\tjge LBB5_%d\n", div_in_cnt);
+        printf ("\tjmp LBB5_%d\n", div_in_cnt+1);
+        printf ("LBB5_%d:\n", div_in_cnt);
         printf ("\tsubl  %%r9d, %%r12d\n");
         printf ("\taddl  $1, %%r13d\n");
-        printf ("LBB4_%d:\n", div_in_cnt+1);
+        printf ("LBB5_%d:\n", div_in_cnt+1);
         div_in_cnt += 2;
     }
     printf ("\tnegl %%r13d\n");// 符号反転
@@ -105,15 +104,14 @@ void div(){
         printf ("LBB4_%d:\n",div_in_cnt);
         printf ("\taddl $1, %%r12d\n");
         printf ("LBB4_%d:\n",div_in_cnt+1);
-        div_in_cnt += 2;
         // 
         printf ("\tcmpl  %%r9d, %%r12d\n");
-        printf ("\tjge LBB4_%d\n", div_in_cnt);
-        printf ("\tjmp LBB4_%d\n", div_in_cnt+1);
-        printf ("LBB4_%d:\n", div_in_cnt);
+        printf ("\tjge LBB5_%d\n", div_in_cnt);
+        printf ("\tjmp LBB5_%d\n", div_in_cnt+1);
+        printf ("LBB5_%d:\n", div_in_cnt);
         printf ("\tsubl  %%r9d, %%r12d\n");
         printf ("\taddl  $1, %%r13d\n");
-        printf ("LBB4_%d:\n", div_in_cnt+1);
+        printf ("LBB5_%d:\n", div_in_cnt+1);
         div_in_cnt += 2;
     }
     printf ("LBB3_%d:\n",div_cnt+1);
