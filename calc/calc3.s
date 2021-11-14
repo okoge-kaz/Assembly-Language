@@ -1818,489 +1818,489 @@ LBB1_181:
 	cmpl  $0, %r9d
 	jge   LBB3_0
 	negl %r9d
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_0
-	jnc  LBB4_1
+	jmp  LBB4_1
 LBB4_0:
 	addl $1, %r12d
 LBB4_1:
 	cmpl  %r9d, %r12d
+	jge LBB5_0
+	jmp LBB5_1
+LBB5_0:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_1:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_2
+	jmp  LBB4_3
+LBB4_2:
+	addl $1, %r12d
+LBB4_3:
+	cmpl  %r9d, %r12d
 	jge LBB5_2
-	jl LBB5_3
+	jmp LBB5_3
 LBB5_2:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_3:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_4
-	jnc  LBB4_5
+	jmp  LBB4_5
 LBB4_4:
 	addl $1, %r12d
 LBB4_5:
 	cmpl  %r9d, %r12d
+	jge LBB5_4
+	jmp LBB5_5
+LBB5_4:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_5:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_6
+	jmp  LBB4_7
+LBB4_6:
+	addl $1, %r12d
+LBB4_7:
+	cmpl  %r9d, %r12d
 	jge LBB5_6
-	jl LBB5_7
+	jmp LBB5_7
 LBB5_6:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_7:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_8
-	jnc  LBB4_9
+	jmp  LBB4_9
 LBB4_8:
 	addl $1, %r12d
 LBB4_9:
 	cmpl  %r9d, %r12d
+	jge LBB5_8
+	jmp LBB5_9
+LBB5_8:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_9:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_10
+	jmp  LBB4_11
+LBB4_10:
+	addl $1, %r12d
+LBB4_11:
+	cmpl  %r9d, %r12d
 	jge LBB5_10
-	jl LBB5_11
+	jmp LBB5_11
 LBB5_10:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_11:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_12
-	jnc  LBB4_13
+	jmp  LBB4_13
 LBB4_12:
 	addl $1, %r12d
 LBB4_13:
 	cmpl  %r9d, %r12d
+	jge LBB5_12
+	jmp LBB5_13
+LBB5_12:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_13:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_14
+	jmp  LBB4_15
+LBB4_14:
+	addl $1, %r12d
+LBB4_15:
+	cmpl  %r9d, %r12d
 	jge LBB5_14
-	jl LBB5_15
+	jmp LBB5_15
 LBB5_14:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_15:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_16
-	jnc  LBB4_17
+	jmp  LBB4_17
 LBB4_16:
 	addl $1, %r12d
 LBB4_17:
 	cmpl  %r9d, %r12d
+	jge LBB5_16
+	jmp LBB5_17
+LBB5_16:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_17:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_18
+	jmp  LBB4_19
+LBB4_18:
+	addl $1, %r12d
+LBB4_19:
+	cmpl  %r9d, %r12d
 	jge LBB5_18
-	jl LBB5_19
+	jmp LBB5_19
 LBB5_18:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_19:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_20
-	jnc  LBB4_21
+	jmp  LBB4_21
 LBB4_20:
 	addl $1, %r12d
 LBB4_21:
 	cmpl  %r9d, %r12d
+	jge LBB5_20
+	jmp LBB5_21
+LBB5_20:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_21:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_22
+	jmp  LBB4_23
+LBB4_22:
+	addl $1, %r12d
+LBB4_23:
+	cmpl  %r9d, %r12d
 	jge LBB5_22
-	jl LBB5_23
+	jmp LBB5_23
 LBB5_22:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_23:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_24
-	jnc  LBB4_25
+	jmp  LBB4_25
 LBB4_24:
 	addl $1, %r12d
 LBB4_25:
 	cmpl  %r9d, %r12d
+	jge LBB5_24
+	jmp LBB5_25
+LBB5_24:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_25:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_26
+	jmp  LBB4_27
+LBB4_26:
+	addl $1, %r12d
+LBB4_27:
+	cmpl  %r9d, %r12d
 	jge LBB5_26
-	jl LBB5_27
+	jmp LBB5_27
 LBB5_26:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_27:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_28
-	jnc  LBB4_29
+	jmp  LBB4_29
 LBB4_28:
 	addl $1, %r12d
 LBB4_29:
 	cmpl  %r9d, %r12d
+	jge LBB5_28
+	jmp LBB5_29
+LBB5_28:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_29:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_30
+	jmp  LBB4_31
+LBB4_30:
+	addl $1, %r12d
+LBB4_31:
+	cmpl  %r9d, %r12d
 	jge LBB5_30
-	jl LBB5_31
+	jmp LBB5_31
 LBB5_30:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_31:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	negl %r13d
+	jmp   LBB3_1
+LBB3_0:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_32
-	jnc  LBB4_33
+	jmp  LBB4_33
 LBB4_32:
 	addl $1, %r12d
 LBB4_33:
 	cmpl  %r9d, %r12d
+	jge LBB5_32
+	jmp LBB5_33
+LBB5_32:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_33:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_34
+	jmp  LBB4_35
+LBB4_34:
+	addl $1, %r12d
+LBB4_35:
+	cmpl  %r9d, %r12d
 	jge LBB5_34
-	jl LBB5_35
+	jmp LBB5_35
 LBB5_34:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_35:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_36
-	jnc  LBB4_37
+	jmp  LBB4_37
 LBB4_36:
 	addl $1, %r12d
 LBB4_37:
 	cmpl  %r9d, %r12d
+	jge LBB5_36
+	jmp LBB5_37
+LBB5_36:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_37:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_38
+	jmp  LBB4_39
+LBB4_38:
+	addl $1, %r12d
+LBB4_39:
+	cmpl  %r9d, %r12d
 	jge LBB5_38
-	jl LBB5_39
+	jmp LBB5_39
 LBB5_38:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_39:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_40
-	jnc  LBB4_41
+	jmp  LBB4_41
 LBB4_40:
 	addl $1, %r12d
 LBB4_41:
 	cmpl  %r9d, %r12d
+	jge LBB5_40
+	jmp LBB5_41
+LBB5_40:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_41:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_42
+	jmp  LBB4_43
+LBB4_42:
+	addl $1, %r12d
+LBB4_43:
+	cmpl  %r9d, %r12d
 	jge LBB5_42
-	jl LBB5_43
+	jmp LBB5_43
 LBB5_42:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_43:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_44
-	jnc  LBB4_45
+	jmp  LBB4_45
 LBB4_44:
 	addl $1, %r12d
 LBB4_45:
 	cmpl  %r9d, %r12d
+	jge LBB5_44
+	jmp LBB5_45
+LBB5_44:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_45:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_46
+	jmp  LBB4_47
+LBB4_46:
+	addl $1, %r12d
+LBB4_47:
+	cmpl  %r9d, %r12d
 	jge LBB5_46
-	jl LBB5_47
+	jmp LBB5_47
 LBB5_46:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_47:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_48
-	jnc  LBB4_49
+	jmp  LBB4_49
 LBB4_48:
 	addl $1, %r12d
 LBB4_49:
 	cmpl  %r9d, %r12d
+	jge LBB5_48
+	jmp LBB5_49
+LBB5_48:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_49:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_50
+	jmp  LBB4_51
+LBB4_50:
+	addl $1, %r12d
+LBB4_51:
+	cmpl  %r9d, %r12d
 	jge LBB5_50
-	jl LBB5_51
+	jmp LBB5_51
 LBB5_50:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_51:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_52
-	jnc  LBB4_53
+	jmp  LBB4_53
 LBB4_52:
 	addl $1, %r12d
 LBB4_53:
 	cmpl  %r9d, %r12d
+	jge LBB5_52
+	jmp LBB5_53
+LBB5_52:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_53:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_54
+	jmp  LBB4_55
+LBB4_54:
+	addl $1, %r12d
+LBB4_55:
+	cmpl  %r9d, %r12d
 	jge LBB5_54
-	jl LBB5_55
+	jmp LBB5_55
 LBB5_54:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_55:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_56
-	jnc  LBB4_57
+	jmp  LBB4_57
 LBB4_56:
 	addl $1, %r12d
 LBB4_57:
 	cmpl  %r9d, %r12d
+	jge LBB5_56
+	jmp LBB5_57
+LBB5_56:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_57:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_58
+	jmp  LBB4_59
+LBB4_58:
+	addl $1, %r12d
+LBB4_59:
+	cmpl  %r9d, %r12d
 	jge LBB5_58
-	jl LBB5_59
+	jmp LBB5_59
 LBB5_58:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_59:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
 	jc  LBB4_60
-	jnc  LBB4_61
+	jmp  LBB4_61
 LBB4_60:
 	addl $1, %r12d
 LBB4_61:
 	cmpl  %r9d, %r12d
+	jge LBB5_60
+	jmp LBB5_61
+LBB5_60:
+	subl  %r9d, %r12d
+	addl  $1, %r13d
+LBB5_61:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_62
+	jmp  LBB4_63
+LBB4_62:
+	addl $1, %r12d
+LBB4_63:
+	cmpl  %r9d, %r12d
 	jge LBB5_62
-	jl LBB5_63
+	jmp LBB5_63
 LBB5_62:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
 LBB5_63:
-	negl %r13d
-	jmp   LBB3_1
-LBB3_0:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_64
-	jnc  LBB4_65
-LBB4_64:
-	addl $1, %r12d
-LBB4_65:
-	cmpl  %r9d, %r12d
-	jge LBB5_66
-	jl LBB5_67
-LBB5_66:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_67:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_68
-	jnc  LBB4_69
-LBB4_68:
-	addl $1, %r12d
-LBB4_69:
-	cmpl  %r9d, %r12d
-	jge LBB5_70
-	jl LBB5_71
-LBB5_70:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_71:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_72
-	jnc  LBB4_73
-LBB4_72:
-	addl $1, %r12d
-LBB4_73:
-	cmpl  %r9d, %r12d
-	jge LBB5_74
-	jl LBB5_75
-LBB5_74:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_75:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_76
-	jnc  LBB4_77
-LBB4_76:
-	addl $1, %r12d
-LBB4_77:
-	cmpl  %r9d, %r12d
-	jge LBB5_78
-	jl LBB5_79
-LBB5_78:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_79:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_80
-	jnc  LBB4_81
-LBB4_80:
-	addl $1, %r12d
-LBB4_81:
-	cmpl  %r9d, %r12d
-	jge LBB5_82
-	jl LBB5_83
-LBB5_82:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_83:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_84
-	jnc  LBB4_85
-LBB4_84:
-	addl $1, %r12d
-LBB4_85:
-	cmpl  %r9d, %r12d
-	jge LBB5_86
-	jl LBB5_87
-LBB5_86:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_87:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_88
-	jnc  LBB4_89
-LBB4_88:
-	addl $1, %r12d
-LBB4_89:
-	cmpl  %r9d, %r12d
-	jge LBB5_90
-	jl LBB5_91
-LBB5_90:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_91:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_92
-	jnc  LBB4_93
-LBB4_92:
-	addl $1, %r12d
-LBB4_93:
-	cmpl  %r9d, %r12d
-	jge LBB5_94
-	jl LBB5_95
-LBB5_94:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_95:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_96
-	jnc  LBB4_97
-LBB4_96:
-	addl $1, %r12d
-LBB4_97:
-	cmpl  %r9d, %r12d
-	jge LBB5_98
-	jl LBB5_99
-LBB5_98:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_99:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_100
-	jnc  LBB4_101
-LBB4_100:
-	addl $1, %r12d
-LBB4_101:
-	cmpl  %r9d, %r12d
-	jge LBB5_102
-	jl LBB5_103
-LBB5_102:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_103:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_104
-	jnc  LBB4_105
-LBB4_104:
-	addl $1, %r12d
-LBB4_105:
-	cmpl  %r9d, %r12d
-	jge LBB5_106
-	jl LBB5_107
-LBB5_106:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_107:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_108
-	jnc  LBB4_109
-LBB4_108:
-	addl $1, %r12d
-LBB4_109:
-	cmpl  %r9d, %r12d
-	jge LBB5_110
-	jl LBB5_111
-LBB5_110:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_111:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_112
-	jnc  LBB4_113
-LBB4_112:
-	addl $1, %r12d
-LBB4_113:
-	cmpl  %r9d, %r12d
-	jge LBB5_114
-	jl LBB5_115
-LBB5_114:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_115:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_116
-	jnc  LBB4_117
-LBB4_116:
-	addl $1, %r12d
-LBB4_117:
-	cmpl  %r9d, %r12d
-	jge LBB5_118
-	jl LBB5_119
-LBB5_118:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_119:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_120
-	jnc  LBB4_121
-LBB4_120:
-	addl $1, %r12d
-LBB4_121:
-	cmpl  %r9d, %r12d
-	jge LBB5_122
-	jl LBB5_123
-LBB5_122:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_123:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_124
-	jnc  LBB4_125
-LBB4_124:
-	addl $1, %r12d
-LBB4_125:
-	cmpl  %r9d, %r12d
-	jge LBB5_126
-	jl LBB5_127
-LBB5_126:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_127:
 LBB3_1:
 	movl %r13d, %eax
 	movl  %eax, %r8d
@@ -2313,497 +2313,500 @@ LBB0_4:
 	cmpl  $0, %r9d
 	jge   LBB3_2
 	negl %r9d
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_128
-	jnc  LBB4_129
-LBB4_128:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_64
+	jmp  LBB4_65
+LBB4_64:
 	addl $1, %r12d
-LBB4_129:
+LBB4_65:
 	cmpl  %r9d, %r12d
-	jge LBB5_130
-	jl LBB5_131
-LBB5_130:
+	jge LBB5_64
+	jmp LBB5_65
+LBB5_64:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_131:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_132
-	jnc  LBB4_133
-LBB4_132:
+LBB5_65:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_66
+	jmp  LBB4_67
+LBB4_66:
 	addl $1, %r12d
-LBB4_133:
+LBB4_67:
 	cmpl  %r9d, %r12d
-	jge LBB5_134
-	jl LBB5_135
-LBB5_134:
+	jge LBB5_66
+	jmp LBB5_67
+LBB5_66:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_135:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_136
-	jnc  LBB4_137
-LBB4_136:
+LBB5_67:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_68
+	jmp  LBB4_69
+LBB4_68:
 	addl $1, %r12d
-LBB4_137:
+LBB4_69:
 	cmpl  %r9d, %r12d
-	jge LBB5_138
-	jl LBB5_139
-LBB5_138:
+	jge LBB5_68
+	jmp LBB5_69
+LBB5_68:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_139:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_140
-	jnc  LBB4_141
-LBB4_140:
+LBB5_69:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_70
+	jmp  LBB4_71
+LBB4_70:
 	addl $1, %r12d
-LBB4_141:
+LBB4_71:
 	cmpl  %r9d, %r12d
-	jge LBB5_142
-	jl LBB5_143
-LBB5_142:
+	jge LBB5_70
+	jmp LBB5_71
+LBB5_70:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_143:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_144
-	jnc  LBB4_145
-LBB4_144:
+LBB5_71:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_72
+	jmp  LBB4_73
+LBB4_72:
 	addl $1, %r12d
-LBB4_145:
+LBB4_73:
 	cmpl  %r9d, %r12d
-	jge LBB5_146
-	jl LBB5_147
-LBB5_146:
+	jge LBB5_72
+	jmp LBB5_73
+LBB5_72:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_147:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_148
-	jnc  LBB4_149
-LBB4_148:
+LBB5_73:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_74
+	jmp  LBB4_75
+LBB4_74:
 	addl $1, %r12d
-LBB4_149:
+LBB4_75:
 	cmpl  %r9d, %r12d
-	jge LBB5_150
-	jl LBB5_151
-LBB5_150:
+	jge LBB5_74
+	jmp LBB5_75
+LBB5_74:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_151:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_152
-	jnc  LBB4_153
-LBB4_152:
+LBB5_75:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_76
+	jmp  LBB4_77
+LBB4_76:
 	addl $1, %r12d
-LBB4_153:
+LBB4_77:
 	cmpl  %r9d, %r12d
-	jge LBB5_154
-	jl LBB5_155
-LBB5_154:
+	jge LBB5_76
+	jmp LBB5_77
+LBB5_76:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_155:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_156
-	jnc  LBB4_157
-LBB4_156:
+LBB5_77:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_78
+	jmp  LBB4_79
+LBB4_78:
 	addl $1, %r12d
-LBB4_157:
+LBB4_79:
 	cmpl  %r9d, %r12d
-	jge LBB5_158
-	jl LBB5_159
-LBB5_158:
+	jge LBB5_78
+	jmp LBB5_79
+LBB5_78:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_159:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_160
-	jnc  LBB4_161
-LBB4_160:
+LBB5_79:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_80
+	jmp  LBB4_81
+LBB4_80:
 	addl $1, %r12d
-LBB4_161:
+LBB4_81:
 	cmpl  %r9d, %r12d
-	jge LBB5_162
-	jl LBB5_163
-LBB5_162:
+	jge LBB5_80
+	jmp LBB5_81
+LBB5_80:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_163:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_164
-	jnc  LBB4_165
-LBB4_164:
+LBB5_81:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_82
+	jmp  LBB4_83
+LBB4_82:
 	addl $1, %r12d
-LBB4_165:
+LBB4_83:
 	cmpl  %r9d, %r12d
-	jge LBB5_166
-	jl LBB5_167
-LBB5_166:
+	jge LBB5_82
+	jmp LBB5_83
+LBB5_82:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_167:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_168
-	jnc  LBB4_169
-LBB4_168:
+LBB5_83:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_84
+	jmp  LBB4_85
+LBB4_84:
 	addl $1, %r12d
-LBB4_169:
+LBB4_85:
 	cmpl  %r9d, %r12d
-	jge LBB5_170
-	jl LBB5_171
-LBB5_170:
+	jge LBB5_84
+	jmp LBB5_85
+LBB5_84:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_171:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_172
-	jnc  LBB4_173
-LBB4_172:
+LBB5_85:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_86
+	jmp  LBB4_87
+LBB4_86:
 	addl $1, %r12d
-LBB4_173:
+LBB4_87:
 	cmpl  %r9d, %r12d
-	jge LBB5_174
-	jl LBB5_175
-LBB5_174:
+	jge LBB5_86
+	jmp LBB5_87
+LBB5_86:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_175:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_176
-	jnc  LBB4_177
-LBB4_176:
+LBB5_87:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_88
+	jmp  LBB4_89
+LBB4_88:
 	addl $1, %r12d
-LBB4_177:
+LBB4_89:
 	cmpl  %r9d, %r12d
-	jge LBB5_178
-	jl LBB5_179
-LBB5_178:
+	jge LBB5_88
+	jmp LBB5_89
+LBB5_88:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_179:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_180
-	jnc  LBB4_181
-LBB4_180:
+LBB5_89:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_90
+	jmp  LBB4_91
+LBB4_90:
 	addl $1, %r12d
-LBB4_181:
+LBB4_91:
 	cmpl  %r9d, %r12d
-	jge LBB5_182
-	jl LBB5_183
-LBB5_182:
+	jge LBB5_90
+	jmp LBB5_91
+LBB5_90:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_183:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_184
-	jnc  LBB4_185
-LBB4_184:
+LBB5_91:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_92
+	jmp  LBB4_93
+LBB4_92:
 	addl $1, %r12d
-LBB4_185:
+LBB4_93:
 	cmpl  %r9d, %r12d
-	jge LBB5_186
-	jl LBB5_187
-LBB5_186:
+	jge LBB5_92
+	jmp LBB5_93
+LBB5_92:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_187:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_188
-	jnc  LBB4_189
-LBB4_188:
+LBB5_93:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_94
+	jmp  LBB4_95
+LBB4_94:
 	addl $1, %r12d
-LBB4_189:
+LBB4_95:
 	cmpl  %r9d, %r12d
-	jge LBB5_190
-	jl LBB5_191
-LBB5_190:
+	jge LBB5_94
+	jmp LBB5_95
+LBB5_94:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_191:
+LBB5_95:
 	negl %r13d
 	jmp   LBB3_3
 LBB3_2:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_192
-	jnc  LBB4_193
-LBB4_192:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_96
+	jmp  LBB4_97
+LBB4_96:
 	addl $1, %r12d
-LBB4_193:
+LBB4_97:
 	cmpl  %r9d, %r12d
-	jge LBB5_194
-	jl LBB5_195
-LBB5_194:
+	jge LBB5_96
+	jmp LBB5_97
+LBB5_96:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_195:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_196
-	jnc  LBB4_197
-LBB4_196:
+LBB5_97:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_98
+	jmp  LBB4_99
+LBB4_98:
 	addl $1, %r12d
-LBB4_197:
+LBB4_99:
 	cmpl  %r9d, %r12d
-	jge LBB5_198
-	jl LBB5_199
-LBB5_198:
+	jge LBB5_98
+	jmp LBB5_99
+LBB5_98:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_199:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_200
-	jnc  LBB4_201
-LBB4_200:
+LBB5_99:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_100
+	jmp  LBB4_101
+LBB4_100:
 	addl $1, %r12d
-LBB4_201:
+LBB4_101:
 	cmpl  %r9d, %r12d
-	jge LBB5_202
-	jl LBB5_203
-LBB5_202:
+	jge LBB5_100
+	jmp LBB5_101
+LBB5_100:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_203:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_204
-	jnc  LBB4_205
-LBB4_204:
+LBB5_101:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_102
+	jmp  LBB4_103
+LBB4_102:
 	addl $1, %r12d
-LBB4_205:
+LBB4_103:
 	cmpl  %r9d, %r12d
-	jge LBB5_206
-	jl LBB5_207
-LBB5_206:
+	jge LBB5_102
+	jmp LBB5_103
+LBB5_102:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_207:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_208
-	jnc  LBB4_209
-LBB4_208:
+LBB5_103:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_104
+	jmp  LBB4_105
+LBB4_104:
 	addl $1, %r12d
-LBB4_209:
+LBB4_105:
 	cmpl  %r9d, %r12d
-	jge LBB5_210
-	jl LBB5_211
-LBB5_210:
+	jge LBB5_104
+	jmp LBB5_105
+LBB5_104:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_211:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_212
-	jnc  LBB4_213
-LBB4_212:
+LBB5_105:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_106
+	jmp  LBB4_107
+LBB4_106:
 	addl $1, %r12d
-LBB4_213:
+LBB4_107:
 	cmpl  %r9d, %r12d
-	jge LBB5_214
-	jl LBB5_215
-LBB5_214:
+	jge LBB5_106
+	jmp LBB5_107
+LBB5_106:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_215:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_216
-	jnc  LBB4_217
-LBB4_216:
+LBB5_107:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_108
+	jmp  LBB4_109
+LBB4_108:
 	addl $1, %r12d
-LBB4_217:
+LBB4_109:
 	cmpl  %r9d, %r12d
-	jge LBB5_218
-	jl LBB5_219
-LBB5_218:
+	jge LBB5_108
+	jmp LBB5_109
+LBB5_108:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_219:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_220
-	jnc  LBB4_221
-LBB4_220:
+LBB5_109:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_110
+	jmp  LBB4_111
+LBB4_110:
 	addl $1, %r12d
-LBB4_221:
+LBB4_111:
 	cmpl  %r9d, %r12d
-	jge LBB5_222
-	jl LBB5_223
-LBB5_222:
+	jge LBB5_110
+	jmp LBB5_111
+LBB5_110:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_223:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_224
-	jnc  LBB4_225
-LBB4_224:
+LBB5_111:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_112
+	jmp  LBB4_113
+LBB4_112:
 	addl $1, %r12d
-LBB4_225:
+LBB4_113:
 	cmpl  %r9d, %r12d
-	jge LBB5_226
-	jl LBB5_227
-LBB5_226:
+	jge LBB5_112
+	jmp LBB5_113
+LBB5_112:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_227:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_228
-	jnc  LBB4_229
-LBB4_228:
+LBB5_113:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_114
+	jmp  LBB4_115
+LBB4_114:
 	addl $1, %r12d
-LBB4_229:
+LBB4_115:
 	cmpl  %r9d, %r12d
-	jge LBB5_230
-	jl LBB5_231
-LBB5_230:
+	jge LBB5_114
+	jmp LBB5_115
+LBB5_114:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_231:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_232
-	jnc  LBB4_233
-LBB4_232:
+LBB5_115:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_116
+	jmp  LBB4_117
+LBB4_116:
 	addl $1, %r12d
-LBB4_233:
+LBB4_117:
 	cmpl  %r9d, %r12d
-	jge LBB5_234
-	jl LBB5_235
-LBB5_234:
+	jge LBB5_116
+	jmp LBB5_117
+LBB5_116:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_235:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_236
-	jnc  LBB4_237
-LBB4_236:
+LBB5_117:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_118
+	jmp  LBB4_119
+LBB4_118:
 	addl $1, %r12d
-LBB4_237:
+LBB4_119:
 	cmpl  %r9d, %r12d
-	jge LBB5_238
-	jl LBB5_239
-LBB5_238:
+	jge LBB5_118
+	jmp LBB5_119
+LBB5_118:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_239:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_240
-	jnc  LBB4_241
-LBB4_240:
+LBB5_119:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_120
+	jmp  LBB4_121
+LBB4_120:
 	addl $1, %r12d
-LBB4_241:
+LBB4_121:
 	cmpl  %r9d, %r12d
-	jge LBB5_242
-	jl LBB5_243
-LBB5_242:
+	jge LBB5_120
+	jmp LBB5_121
+LBB5_120:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_243:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_244
-	jnc  LBB4_245
-LBB4_244:
+LBB5_121:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_122
+	jmp  LBB4_123
+LBB4_122:
 	addl $1, %r12d
-LBB4_245:
+LBB4_123:
 	cmpl  %r9d, %r12d
-	jge LBB5_246
-	jl LBB5_247
-LBB5_246:
+	jge LBB5_122
+	jmp LBB5_123
+LBB5_122:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_247:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_248
-	jnc  LBB4_249
-LBB4_248:
+LBB5_123:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_124
+	jmp  LBB4_125
+LBB4_124:
 	addl $1, %r12d
-LBB4_249:
+LBB4_125:
 	cmpl  %r9d, %r12d
-	jge LBB5_250
-	jl LBB5_251
-LBB5_250:
+	jge LBB5_124
+	jmp LBB5_125
+LBB5_124:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_251:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_252
-	jnc  LBB4_253
-LBB4_252:
+LBB5_125:
+	shll  %r12d
+	shll  %r13d
+	shll  %r14d
+	jc  LBB4_126
+	jmp  LBB4_127
+LBB4_126:
 	addl $1, %r12d
-LBB4_253:
+LBB4_127:
 	cmpl  %r9d, %r12d
-	jge LBB5_254
-	jl LBB5_255
-LBB5_254:
+	jge LBB5_126
+	jmp LBB5_127
+LBB5_126:
 	subl  %r9d, %r12d
 	addl  $1, %r13d
-LBB5_255:
+LBB5_127:
 LBB3_3:
 	movl %r13d, %eax
 	movl  %eax, %r8d
 LBB0_5:
 	movl  $0, %r9d
+	movl  $1, %r9d
 	cmpl  $0, %r9d
-	je  LBB1_182
-	jne  LBB1_183
+	jge    LBB0_6
+	negl %r9d
+	jo  LBB1_182
+	jno  LBB1_183
 LBB1_182:
 	leaq L_fmt(%rip), %rdi
 	movq  L_fmt(%rip), %rsi
@@ -2815,1000 +2818,1692 @@ LBB1_182:
 	ret
 
 LBB1_183:
-	movl  %r8d, %eax
-	cmpl  $0, %eax
-	jge   LBB0_6
-	movl  $0, %edx
-	negl %eax
+	movl %r9d, %eax
+	movl  $10, %r9d
+	movl %eax, %r11d
+	movl %r9d, %r12d
+	movl $0, %eax
+rorl  %r12d
+	jc  LBB2_160
+	jnc  LBB2_161
+LBB2_160:
+	addl %r11d, %eax
+	jo  LBB1_184
+	jno  LBB1_185
+LBB1_184:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_185:
+LBB2_161:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_162
+	jnc  LBB2_163
+LBB2_162:
+	addl %r11d, %eax
+	jo  LBB1_186
+	jno  LBB1_187
+LBB1_186:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_187:
+LBB2_163:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_164
+	jnc  LBB2_165
+LBB2_164:
+	addl %r11d, %eax
+	jo  LBB1_188
+	jno  LBB1_189
+LBB1_188:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_189:
+LBB2_165:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_166
+	jnc  LBB2_167
+LBB2_166:
+	addl %r11d, %eax
+	jo  LBB1_190
+	jno  LBB1_191
+LBB1_190:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_191:
+LBB2_167:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_168
+	jnc  LBB2_169
+LBB2_168:
+	addl %r11d, %eax
+	jo  LBB1_192
+	jno  LBB1_193
+LBB1_192:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_193:
+LBB2_169:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_170
+	jnc  LBB2_171
+LBB2_170:
+	addl %r11d, %eax
+	jo  LBB1_194
+	jno  LBB1_195
+LBB1_194:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_195:
+LBB2_171:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_172
+	jnc  LBB2_173
+LBB2_172:
+	addl %r11d, %eax
+	jo  LBB1_196
+	jno  LBB1_197
+LBB1_196:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_197:
+LBB2_173:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_174
+	jnc  LBB2_175
+LBB2_174:
+	addl %r11d, %eax
+	jo  LBB1_198
+	jno  LBB1_199
+LBB1_198:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_199:
+LBB2_175:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_176
+	jnc  LBB2_177
+LBB2_176:
+	addl %r11d, %eax
+	jo  LBB1_200
+	jno  LBB1_201
+LBB1_200:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_201:
+LBB2_177:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_178
+	jnc  LBB2_179
+LBB2_178:
+	addl %r11d, %eax
+	jo  LBB1_202
+	jno  LBB1_203
+LBB1_202:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_203:
+LBB2_179:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_180
+	jnc  LBB2_181
+LBB2_180:
+	addl %r11d, %eax
+	jo  LBB1_204
+	jno  LBB1_205
+LBB1_204:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_205:
+LBB2_181:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_182
+	jnc  LBB2_183
+LBB2_182:
+	addl %r11d, %eax
+	jo  LBB1_206
+	jno  LBB1_207
+LBB1_206:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_207:
+LBB2_183:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_184
+	jnc  LBB2_185
+LBB2_184:
+	addl %r11d, %eax
+	jo  LBB1_208
+	jno  LBB1_209
+LBB1_208:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_209:
+LBB2_185:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_186
+	jnc  LBB2_187
+LBB2_186:
+	addl %r11d, %eax
+	jo  LBB1_210
+	jno  LBB1_211
+LBB1_210:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_211:
+LBB2_187:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_188
+	jnc  LBB2_189
+LBB2_188:
+	addl %r11d, %eax
+	jo  LBB1_212
+	jno  LBB1_213
+LBB1_212:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_213:
+LBB2_189:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_190
+	jnc  LBB2_191
+LBB2_190:
+	addl %r11d, %eax
+	jo  LBB1_214
+	jno  LBB1_215
+LBB1_214:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_215:
+LBB2_191:
+	movl %eax, %r9d
 	negl %r9d
-	movl  $0, %r12d
-	movl  $0, %r13d
-	movl  %eax, %r14d
-	cmpl  $0, %r9d
-	jge   LBB3_4
-	negl %r9d
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_256
-	jnc  LBB4_257
-LBB4_256:
-	addl $1, %r12d
-LBB4_257:
-	cmpl  %r9d, %r12d
-	jge LBB5_258
-	jl LBB5_259
-LBB5_258:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_259:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_260
-	jnc  LBB4_261
-LBB4_260:
-	addl $1, %r12d
-LBB4_261:
-	cmpl  %r9d, %r12d
-	jge LBB5_262
-	jl LBB5_263
-LBB5_262:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_263:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_264
-	jnc  LBB4_265
-LBB4_264:
-	addl $1, %r12d
-LBB4_265:
-	cmpl  %r9d, %r12d
-	jge LBB5_266
-	jl LBB5_267
-LBB5_266:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_267:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_268
-	jnc  LBB4_269
-LBB4_268:
-	addl $1, %r12d
-LBB4_269:
-	cmpl  %r9d, %r12d
-	jge LBB5_270
-	jl LBB5_271
-LBB5_270:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_271:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_272
-	jnc  LBB4_273
-LBB4_272:
-	addl $1, %r12d
-LBB4_273:
-	cmpl  %r9d, %r12d
-	jge LBB5_274
-	jl LBB5_275
-LBB5_274:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_275:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_276
-	jnc  LBB4_277
-LBB4_276:
-	addl $1, %r12d
-LBB4_277:
-	cmpl  %r9d, %r12d
-	jge LBB5_278
-	jl LBB5_279
-LBB5_278:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_279:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_280
-	jnc  LBB4_281
-LBB4_280:
-	addl $1, %r12d
-LBB4_281:
-	cmpl  %r9d, %r12d
-	jge LBB5_282
-	jl LBB5_283
-LBB5_282:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_283:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_284
-	jnc  LBB4_285
-LBB4_284:
-	addl $1, %r12d
-LBB4_285:
-	cmpl  %r9d, %r12d
-	jge LBB5_286
-	jl LBB5_287
-LBB5_286:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_287:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_288
-	jnc  LBB4_289
-LBB4_288:
-	addl $1, %r12d
-LBB4_289:
-	cmpl  %r9d, %r12d
-	jge LBB5_290
-	jl LBB5_291
-LBB5_290:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_291:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_292
-	jnc  LBB4_293
-LBB4_292:
-	addl $1, %r12d
-LBB4_293:
-	cmpl  %r9d, %r12d
-	jge LBB5_294
-	jl LBB5_295
-LBB5_294:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_295:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_296
-	jnc  LBB4_297
-LBB4_296:
-	addl $1, %r12d
-LBB4_297:
-	cmpl  %r9d, %r12d
-	jge LBB5_298
-	jl LBB5_299
-LBB5_298:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_299:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_300
-	jnc  LBB4_301
-LBB4_300:
-	addl $1, %r12d
-LBB4_301:
-	cmpl  %r9d, %r12d
-	jge LBB5_302
-	jl LBB5_303
-LBB5_302:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_303:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_304
-	jnc  LBB4_305
-LBB4_304:
-	addl $1, %r12d
-LBB4_305:
-	cmpl  %r9d, %r12d
-	jge LBB5_306
-	jl LBB5_307
-LBB5_306:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_307:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_308
-	jnc  LBB4_309
-LBB4_308:
-	addl $1, %r12d
-LBB4_309:
-	cmpl  %r9d, %r12d
-	jge LBB5_310
-	jl LBB5_311
-LBB5_310:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_311:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_312
-	jnc  LBB4_313
-LBB4_312:
-	addl $1, %r12d
-LBB4_313:
-	cmpl  %r9d, %r12d
-	jge LBB5_314
-	jl LBB5_315
-LBB5_314:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_315:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_316
-	jnc  LBB4_317
-LBB4_316:
-	addl $1, %r12d
-LBB4_317:
-	cmpl  %r9d, %r12d
-	jge LBB5_318
-	jl LBB5_319
-LBB5_318:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_319:
-	negl %r13d
-	jmp   LBB3_5
-LBB3_4:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_320
-	jnc  LBB4_321
-LBB4_320:
-	addl $1, %r12d
-LBB4_321:
-	cmpl  %r9d, %r12d
-	jge LBB5_322
-	jl LBB5_323
-LBB5_322:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_323:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_324
-	jnc  LBB4_325
-LBB4_324:
-	addl $1, %r12d
-LBB4_325:
-	cmpl  %r9d, %r12d
-	jge LBB5_326
-	jl LBB5_327
-LBB5_326:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_327:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_328
-	jnc  LBB4_329
-LBB4_328:
-	addl $1, %r12d
-LBB4_329:
-	cmpl  %r9d, %r12d
-	jge LBB5_330
-	jl LBB5_331
-LBB5_330:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_331:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_332
-	jnc  LBB4_333
-LBB4_332:
-	addl $1, %r12d
-LBB4_333:
-	cmpl  %r9d, %r12d
-	jge LBB5_334
-	jl LBB5_335
-LBB5_334:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_335:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_336
-	jnc  LBB4_337
-LBB4_336:
-	addl $1, %r12d
-LBB4_337:
-	cmpl  %r9d, %r12d
-	jge LBB5_338
-	jl LBB5_339
-LBB5_338:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_339:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_340
-	jnc  LBB4_341
-LBB4_340:
-	addl $1, %r12d
-LBB4_341:
-	cmpl  %r9d, %r12d
-	jge LBB5_342
-	jl LBB5_343
-LBB5_342:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_343:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_344
-	jnc  LBB4_345
-LBB4_344:
-	addl $1, %r12d
-LBB4_345:
-	cmpl  %r9d, %r12d
-	jge LBB5_346
-	jl LBB5_347
-LBB5_346:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_347:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_348
-	jnc  LBB4_349
-LBB4_348:
-	addl $1, %r12d
-LBB4_349:
-	cmpl  %r9d, %r12d
-	jge LBB5_350
-	jl LBB5_351
-LBB5_350:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_351:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_352
-	jnc  LBB4_353
-LBB4_352:
-	addl $1, %r12d
-LBB4_353:
-	cmpl  %r9d, %r12d
-	jge LBB5_354
-	jl LBB5_355
-LBB5_354:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_355:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_356
-	jnc  LBB4_357
-LBB4_356:
-	addl $1, %r12d
-LBB4_357:
-	cmpl  %r9d, %r12d
-	jge LBB5_358
-	jl LBB5_359
-LBB5_358:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_359:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_360
-	jnc  LBB4_361
-LBB4_360:
-	addl $1, %r12d
-LBB4_361:
-	cmpl  %r9d, %r12d
-	jge LBB5_362
-	jl LBB5_363
-LBB5_362:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_363:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_364
-	jnc  LBB4_365
-LBB4_364:
-	addl $1, %r12d
-LBB4_365:
-	cmpl  %r9d, %r12d
-	jge LBB5_366
-	jl LBB5_367
-LBB5_366:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_367:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_368
-	jnc  LBB4_369
-LBB4_368:
-	addl $1, %r12d
-LBB4_369:
-	cmpl  %r9d, %r12d
-	jge LBB5_370
-	jl LBB5_371
-LBB5_370:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_371:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_372
-	jnc  LBB4_373
-LBB4_372:
-	addl $1, %r12d
-LBB4_373:
-	cmpl  %r9d, %r12d
-	jge LBB5_374
-	jl LBB5_375
-LBB5_374:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_375:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_376
-	jnc  LBB4_377
-LBB4_376:
-	addl $1, %r12d
-LBB4_377:
-	cmpl  %r9d, %r12d
-	jge LBB5_378
-	jl LBB5_379
-LBB5_378:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_379:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_380
-	jnc  LBB4_381
-LBB4_380:
-	addl $1, %r12d
-LBB4_381:
-	cmpl  %r9d, %r12d
-	jge LBB5_382
-	jl LBB5_383
-LBB5_382:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_383:
-LBB3_5:
-	movl %r13d, %eax
-	movl  %eax, %r8d
+	jo  LBB1_216
+	jno  LBB1_217
+LBB1_216:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_217:
+	subl  $5, %r9d
+	jo  LBB1_218
+	jno  LBB1_219
+LBB1_218:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_219:
 	jmp   LBB0_7
 LBB0_6:
-	movl  $0, %edx
-	movl  $0, %r12d
-	movl  $0, %r13d
-	movl  %eax, %r14d
-	cmpl  $0, %r9d
-	jge   LBB3_6
-	negl %r9d
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_384
-	jnc  LBB4_385
-LBB4_384:
-	addl $1, %r12d
-LBB4_385:
-	cmpl  %r9d, %r12d
-	jge LBB5_386
-	jl LBB5_387
-LBB5_386:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_387:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_388
-	jnc  LBB4_389
-LBB4_388:
-	addl $1, %r12d
-LBB4_389:
-	cmpl  %r9d, %r12d
-	jge LBB5_390
-	jl LBB5_391
-LBB5_390:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_391:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_392
-	jnc  LBB4_393
-LBB4_392:
-	addl $1, %r12d
-LBB4_393:
-	cmpl  %r9d, %r12d
-	jge LBB5_394
-	jl LBB5_395
-LBB5_394:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_395:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_396
-	jnc  LBB4_397
-LBB4_396:
-	addl $1, %r12d
-LBB4_397:
-	cmpl  %r9d, %r12d
-	jge LBB5_398
-	jl LBB5_399
-LBB5_398:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_399:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_400
-	jnc  LBB4_401
-LBB4_400:
-	addl $1, %r12d
-LBB4_401:
-	cmpl  %r9d, %r12d
-	jge LBB5_402
-	jl LBB5_403
-LBB5_402:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_403:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_404
-	jnc  LBB4_405
-LBB4_404:
-	addl $1, %r12d
-LBB4_405:
-	cmpl  %r9d, %r12d
-	jge LBB5_406
-	jl LBB5_407
-LBB5_406:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_407:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_408
-	jnc  LBB4_409
-LBB4_408:
-	addl $1, %r12d
-LBB4_409:
-	cmpl  %r9d, %r12d
-	jge LBB5_410
-	jl LBB5_411
-LBB5_410:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_411:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_412
-	jnc  LBB4_413
-LBB4_412:
-	addl $1, %r12d
-LBB4_413:
-	cmpl  %r9d, %r12d
-	jge LBB5_414
-	jl LBB5_415
-LBB5_414:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_415:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_416
-	jnc  LBB4_417
-LBB4_416:
-	addl $1, %r12d
-LBB4_417:
-	cmpl  %r9d, %r12d
-	jge LBB5_418
-	jl LBB5_419
-LBB5_418:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_419:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_420
-	jnc  LBB4_421
-LBB4_420:
-	addl $1, %r12d
-LBB4_421:
-	cmpl  %r9d, %r12d
-	jge LBB5_422
-	jl LBB5_423
-LBB5_422:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_423:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_424
-	jnc  LBB4_425
-LBB4_424:
-	addl $1, %r12d
-LBB4_425:
-	cmpl  %r9d, %r12d
-	jge LBB5_426
-	jl LBB5_427
-LBB5_426:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_427:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_428
-	jnc  LBB4_429
-LBB4_428:
-	addl $1, %r12d
-LBB4_429:
-	cmpl  %r9d, %r12d
-	jge LBB5_430
-	jl LBB5_431
-LBB5_430:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_431:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_432
-	jnc  LBB4_433
-LBB4_432:
-	addl $1, %r12d
-LBB4_433:
-	cmpl  %r9d, %r12d
-	jge LBB5_434
-	jl LBB5_435
-LBB5_434:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_435:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_436
-	jnc  LBB4_437
-LBB4_436:
-	addl $1, %r12d
-LBB4_437:
-	cmpl  %r9d, %r12d
-	jge LBB5_438
-	jl LBB5_439
-LBB5_438:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_439:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_440
-	jnc  LBB4_441
-LBB4_440:
-	addl $1, %r12d
-LBB4_441:
-	cmpl  %r9d, %r12d
-	jge LBB5_442
-	jl LBB5_443
-LBB5_442:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_443:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_444
-	jnc  LBB4_445
-LBB4_444:
-	addl $1, %r12d
-LBB4_445:
-	cmpl  %r9d, %r12d
-	jge LBB5_446
-	jl LBB5_447
-LBB5_446:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_447:
-	negl %r13d
-	jmp   LBB3_7
-LBB3_6:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_448
-	jnc  LBB4_449
-LBB4_448:
-	addl $1, %r12d
-LBB4_449:
-	cmpl  %r9d, %r12d
-	jge LBB5_450
-	jl LBB5_451
-LBB5_450:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_451:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_452
-	jnc  LBB4_453
-LBB4_452:
-	addl $1, %r12d
-LBB4_453:
-	cmpl  %r9d, %r12d
-	jge LBB5_454
-	jl LBB5_455
-LBB5_454:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_455:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_456
-	jnc  LBB4_457
-LBB4_456:
-	addl $1, %r12d
-LBB4_457:
-	cmpl  %r9d, %r12d
-	jge LBB5_458
-	jl LBB5_459
-LBB5_458:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_459:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_460
-	jnc  LBB4_461
-LBB4_460:
-	addl $1, %r12d
-LBB4_461:
-	cmpl  %r9d, %r12d
-	jge LBB5_462
-	jl LBB5_463
-LBB5_462:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_463:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_464
-	jnc  LBB4_465
-LBB4_464:
-	addl $1, %r12d
-LBB4_465:
-	cmpl  %r9d, %r12d
-	jge LBB5_466
-	jl LBB5_467
-LBB5_466:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_467:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_468
-	jnc  LBB4_469
-LBB4_468:
-	addl $1, %r12d
-LBB4_469:
-	cmpl  %r9d, %r12d
-	jge LBB5_470
-	jl LBB5_471
-LBB5_470:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_471:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_472
-	jnc  LBB4_473
-LBB4_472:
-	addl $1, %r12d
-LBB4_473:
-	cmpl  %r9d, %r12d
-	jge LBB5_474
-	jl LBB5_475
-LBB5_474:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_475:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_476
-	jnc  LBB4_477
-LBB4_476:
-	addl $1, %r12d
-LBB4_477:
-	cmpl  %r9d, %r12d
-	jge LBB5_478
-	jl LBB5_479
-LBB5_478:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_479:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_480
-	jnc  LBB4_481
-LBB4_480:
-	addl $1, %r12d
-LBB4_481:
-	cmpl  %r9d, %r12d
-	jge LBB5_482
-	jl LBB5_483
-LBB5_482:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_483:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_484
-	jnc  LBB4_485
-LBB4_484:
-	addl $1, %r12d
-LBB4_485:
-	cmpl  %r9d, %r12d
-	jge LBB5_486
-	jl LBB5_487
-LBB5_486:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_487:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_488
-	jnc  LBB4_489
-LBB4_488:
-	addl $1, %r12d
-LBB4_489:
-	cmpl  %r9d, %r12d
-	jge LBB5_490
-	jl LBB5_491
-LBB5_490:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_491:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_492
-	jnc  LBB4_493
-LBB4_492:
-	addl $1, %r12d
-LBB4_493:
-	cmpl  %r9d, %r12d
-	jge LBB5_494
-	jl LBB5_495
-LBB5_494:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_495:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_496
-	jnc  LBB4_497
-LBB4_496:
-	addl $1, %r12d
-LBB4_497:
-	cmpl  %r9d, %r12d
-	jge LBB5_498
-	jl LBB5_499
-LBB5_498:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_499:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_500
-	jnc  LBB4_501
-LBB4_500:
-	addl $1, %r12d
-LBB4_501:
-	cmpl  %r9d, %r12d
-	jge LBB5_502
-	jl LBB5_503
-LBB5_502:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_503:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_504
-	jnc  LBB4_505
-LBB4_504:
-	addl $1, %r12d
-LBB4_505:
-	cmpl  %r9d, %r12d
-	jge LBB5_506
-	jl LBB5_507
-LBB5_506:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_507:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_508
-	jnc  LBB4_509
-LBB4_508:
-	addl $1, %r12d
-LBB4_509:
-	cmpl  %r9d, %r12d
-	jge LBB5_510
-	jl LBB5_511
-LBB5_510:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB5_511:
-LBB3_7:
-	movl %r13d, %eax
-	movl  %eax, %r8d
+	movl %r9d, %eax
+	movl  $10, %r9d
+	movl %eax, %r11d
+	movl %r9d, %r12d
+	movl $0, %eax
+rorl  %r12d
+	jc  LBB2_192
+	jnc  LBB2_193
+LBB2_192:
+	addl %r11d, %eax
+	jo  LBB1_220
+	jno  LBB1_221
+LBB1_220:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_221:
+LBB2_193:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_194
+	jnc  LBB2_195
+LBB2_194:
+	addl %r11d, %eax
+	jo  LBB1_222
+	jno  LBB1_223
+LBB1_222:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_223:
+LBB2_195:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_196
+	jnc  LBB2_197
+LBB2_196:
+	addl %r11d, %eax
+	jo  LBB1_224
+	jno  LBB1_225
+LBB1_224:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_225:
+LBB2_197:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_198
+	jnc  LBB2_199
+LBB2_198:
+	addl %r11d, %eax
+	jo  LBB1_226
+	jno  LBB1_227
+LBB1_226:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_227:
+LBB2_199:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_200
+	jnc  LBB2_201
+LBB2_200:
+	addl %r11d, %eax
+	jo  LBB1_228
+	jno  LBB1_229
+LBB1_228:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_229:
+LBB2_201:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_202
+	jnc  LBB2_203
+LBB2_202:
+	addl %r11d, %eax
+	jo  LBB1_230
+	jno  LBB1_231
+LBB1_230:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_231:
+LBB2_203:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_204
+	jnc  LBB2_205
+LBB2_204:
+	addl %r11d, %eax
+	jo  LBB1_232
+	jno  LBB1_233
+LBB1_232:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_233:
+LBB2_205:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_206
+	jnc  LBB2_207
+LBB2_206:
+	addl %r11d, %eax
+	jo  LBB1_234
+	jno  LBB1_235
+LBB1_234:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_235:
+LBB2_207:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_208
+	jnc  LBB2_209
+LBB2_208:
+	addl %r11d, %eax
+	jo  LBB1_236
+	jno  LBB1_237
+LBB1_236:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_237:
+LBB2_209:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_210
+	jnc  LBB2_211
+LBB2_210:
+	addl %r11d, %eax
+	jo  LBB1_238
+	jno  LBB1_239
+LBB1_238:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_239:
+LBB2_211:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_212
+	jnc  LBB2_213
+LBB2_212:
+	addl %r11d, %eax
+	jo  LBB1_240
+	jno  LBB1_241
+LBB1_240:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_241:
+LBB2_213:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_214
+	jnc  LBB2_215
+LBB2_214:
+	addl %r11d, %eax
+	jo  LBB1_242
+	jno  LBB1_243
+LBB1_242:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_243:
+LBB2_215:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_216
+	jnc  LBB2_217
+LBB2_216:
+	addl %r11d, %eax
+	jo  LBB1_244
+	jno  LBB1_245
+LBB1_244:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_245:
+LBB2_217:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_218
+	jnc  LBB2_219
+LBB2_218:
+	addl %r11d, %eax
+	jo  LBB1_246
+	jno  LBB1_247
+LBB1_246:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_247:
+LBB2_219:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_220
+	jnc  LBB2_221
+LBB2_220:
+	addl %r11d, %eax
+	jo  LBB1_248
+	jno  LBB1_249
+LBB1_248:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_249:
+LBB2_221:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_222
+	jnc  LBB2_223
+LBB2_222:
+	addl %r11d, %eax
+	jo  LBB1_250
+	jno  LBB1_251
+LBB1_250:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_251:
+LBB2_223:
+	movl %eax, %r9d
+	addl  $5, %r9d
+	jo  LBB1_252
+	jno  LBB1_253
+LBB1_252:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_253:
 LBB0_7:
+	addl  %r9d, %r8d
+	jo  LBB1_254
+	jno  LBB1_255
+LBB1_254:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_255:
+	movl  $0, %r9d
+	movl  $2, %r9d
+	movl  %r8d, %eax
+	movl %eax, %r11d
+	movl %r9d, %r12d
+	movl $0, %eax
+rorl  %r12d
+	jc  LBB2_224
+	jnc  LBB2_225
+LBB2_224:
+	addl %r11d, %eax
+	jo  LBB1_256
+	jno  LBB1_257
+LBB1_256:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_257:
+LBB2_225:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_226
+	jnc  LBB2_227
+LBB2_226:
+	addl %r11d, %eax
+	jo  LBB1_258
+	jno  LBB1_259
+LBB1_258:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_259:
+LBB2_227:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_228
+	jnc  LBB2_229
+LBB2_228:
+	addl %r11d, %eax
+	jo  LBB1_260
+	jno  LBB1_261
+LBB1_260:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_261:
+LBB2_229:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_230
+	jnc  LBB2_231
+LBB2_230:
+	addl %r11d, %eax
+	jo  LBB1_262
+	jno  LBB1_263
+LBB1_262:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_263:
+LBB2_231:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_232
+	jnc  LBB2_233
+LBB2_232:
+	addl %r11d, %eax
+	jo  LBB1_264
+	jno  LBB1_265
+LBB1_264:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_265:
+LBB2_233:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_234
+	jnc  LBB2_235
+LBB2_234:
+	addl %r11d, %eax
+	jo  LBB1_266
+	jno  LBB1_267
+LBB1_266:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_267:
+LBB2_235:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_236
+	jnc  LBB2_237
+LBB2_236:
+	addl %r11d, %eax
+	jo  LBB1_268
+	jno  LBB1_269
+LBB1_268:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_269:
+LBB2_237:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_238
+	jnc  LBB2_239
+LBB2_238:
+	addl %r11d, %eax
+	jo  LBB1_270
+	jno  LBB1_271
+LBB1_270:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_271:
+LBB2_239:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_240
+	jnc  LBB2_241
+LBB2_240:
+	addl %r11d, %eax
+	jo  LBB1_272
+	jno  LBB1_273
+LBB1_272:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_273:
+LBB2_241:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_242
+	jnc  LBB2_243
+LBB2_242:
+	addl %r11d, %eax
+	jo  LBB1_274
+	jno  LBB1_275
+LBB1_274:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_275:
+LBB2_243:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_244
+	jnc  LBB2_245
+LBB2_244:
+	addl %r11d, %eax
+	jo  LBB1_276
+	jno  LBB1_277
+LBB1_276:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_277:
+LBB2_245:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_246
+	jnc  LBB2_247
+LBB2_246:
+	addl %r11d, %eax
+	jo  LBB1_278
+	jno  LBB1_279
+LBB1_278:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_279:
+LBB2_247:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_248
+	jnc  LBB2_249
+LBB2_248:
+	addl %r11d, %eax
+	jo  LBB1_280
+	jno  LBB1_281
+LBB1_280:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_281:
+LBB2_249:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_250
+	jnc  LBB2_251
+LBB2_250:
+	addl %r11d, %eax
+	jo  LBB1_282
+	jno  LBB1_283
+LBB1_282:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_283:
+LBB2_251:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_252
+	jnc  LBB2_253
+LBB2_252:
+	addl %r11d, %eax
+	jo  LBB1_284
+	jno  LBB1_285
+LBB1_284:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_285:
+LBB2_253:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_254
+	jnc  LBB2_255
+LBB2_254:
+	addl %r11d, %eax
+	jo  LBB1_286
+	jno  LBB1_287
+LBB1_286:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_287:
+LBB2_255:
+	movl  %eax, %r8d
+	movl  $0, %r9d
+	movl  $3, %r9d
+	movl  %r8d, %eax
+	movl %eax, %r11d
+	movl %r9d, %r12d
+	movl $0, %eax
+rorl  %r12d
+	jc  LBB2_256
+	jnc  LBB2_257
+LBB2_256:
+	addl %r11d, %eax
+	jo  LBB1_288
+	jno  LBB1_289
+LBB1_288:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_289:
+LBB2_257:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_258
+	jnc  LBB2_259
+LBB2_258:
+	addl %r11d, %eax
+	jo  LBB1_290
+	jno  LBB1_291
+LBB1_290:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_291:
+LBB2_259:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_260
+	jnc  LBB2_261
+LBB2_260:
+	addl %r11d, %eax
+	jo  LBB1_292
+	jno  LBB1_293
+LBB1_292:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_293:
+LBB2_261:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_262
+	jnc  LBB2_263
+LBB2_262:
+	addl %r11d, %eax
+	jo  LBB1_294
+	jno  LBB1_295
+LBB1_294:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_295:
+LBB2_263:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_264
+	jnc  LBB2_265
+LBB2_264:
+	addl %r11d, %eax
+	jo  LBB1_296
+	jno  LBB1_297
+LBB1_296:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_297:
+LBB2_265:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_266
+	jnc  LBB2_267
+LBB2_266:
+	addl %r11d, %eax
+	jo  LBB1_298
+	jno  LBB1_299
+LBB1_298:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_299:
+LBB2_267:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_268
+	jnc  LBB2_269
+LBB2_268:
+	addl %r11d, %eax
+	jo  LBB1_300
+	jno  LBB1_301
+LBB1_300:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_301:
+LBB2_269:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_270
+	jnc  LBB2_271
+LBB2_270:
+	addl %r11d, %eax
+	jo  LBB1_302
+	jno  LBB1_303
+LBB1_302:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_303:
+LBB2_271:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_272
+	jnc  LBB2_273
+LBB2_272:
+	addl %r11d, %eax
+	jo  LBB1_304
+	jno  LBB1_305
+LBB1_304:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_305:
+LBB2_273:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_274
+	jnc  LBB2_275
+LBB2_274:
+	addl %r11d, %eax
+	jo  LBB1_306
+	jno  LBB1_307
+LBB1_306:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_307:
+LBB2_275:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_276
+	jnc  LBB2_277
+LBB2_276:
+	addl %r11d, %eax
+	jo  LBB1_308
+	jno  LBB1_309
+LBB1_308:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_309:
+LBB2_277:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_278
+	jnc  LBB2_279
+LBB2_278:
+	addl %r11d, %eax
+	jo  LBB1_310
+	jno  LBB1_311
+LBB1_310:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_311:
+LBB2_279:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_280
+	jnc  LBB2_281
+LBB2_280:
+	addl %r11d, %eax
+	jo  LBB1_312
+	jno  LBB1_313
+LBB1_312:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_313:
+LBB2_281:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_282
+	jnc  LBB2_283
+LBB2_282:
+	addl %r11d, %eax
+	jo  LBB1_314
+	jno  LBB1_315
+LBB1_314:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_315:
+LBB2_283:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_284
+	jnc  LBB2_285
+LBB2_284:
+	addl %r11d, %eax
+	jo  LBB1_316
+	jno  LBB1_317
+LBB1_316:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_317:
+LBB2_285:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_286
+	jnc  LBB2_287
+LBB2_286:
+	addl %r11d, %eax
+	jo  LBB1_318
+	jno  LBB1_319
+LBB1_318:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_319:
+LBB2_287:
+	movl  %eax, %r8d
+	movl  $0, %r9d
+	movl  %r8d, %eax
+	movl %eax, %r11d
+	movl %r9d, %r12d
+	movl $0, %eax
+rorl  %r12d
+	jc  LBB2_288
+	jnc  LBB2_289
+LBB2_288:
+	addl %r11d, %eax
+	jo  LBB1_320
+	jno  LBB1_321
+LBB1_320:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_321:
+LBB2_289:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_290
+	jnc  LBB2_291
+LBB2_290:
+	addl %r11d, %eax
+	jo  LBB1_322
+	jno  LBB1_323
+LBB1_322:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_323:
+LBB2_291:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_292
+	jnc  LBB2_293
+LBB2_292:
+	addl %r11d, %eax
+	jo  LBB1_324
+	jno  LBB1_325
+LBB1_324:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_325:
+LBB2_293:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_294
+	jnc  LBB2_295
+LBB2_294:
+	addl %r11d, %eax
+	jo  LBB1_326
+	jno  LBB1_327
+LBB1_326:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_327:
+LBB2_295:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_296
+	jnc  LBB2_297
+LBB2_296:
+	addl %r11d, %eax
+	jo  LBB1_328
+	jno  LBB1_329
+LBB1_328:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_329:
+LBB2_297:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_298
+	jnc  LBB2_299
+LBB2_298:
+	addl %r11d, %eax
+	jo  LBB1_330
+	jno  LBB1_331
+LBB1_330:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_331:
+LBB2_299:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_300
+	jnc  LBB2_301
+LBB2_300:
+	addl %r11d, %eax
+	jo  LBB1_332
+	jno  LBB1_333
+LBB1_332:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_333:
+LBB2_301:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_302
+	jnc  LBB2_303
+LBB2_302:
+	addl %r11d, %eax
+	jo  LBB1_334
+	jno  LBB1_335
+LBB1_334:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_335:
+LBB2_303:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_304
+	jnc  LBB2_305
+LBB2_304:
+	addl %r11d, %eax
+	jo  LBB1_336
+	jno  LBB1_337
+LBB1_336:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_337:
+LBB2_305:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_306
+	jnc  LBB2_307
+LBB2_306:
+	addl %r11d, %eax
+	jo  LBB1_338
+	jno  LBB1_339
+LBB1_338:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_339:
+LBB2_307:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_308
+	jnc  LBB2_309
+LBB2_308:
+	addl %r11d, %eax
+	jo  LBB1_340
+	jno  LBB1_341
+LBB1_340:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_341:
+LBB2_309:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_310
+	jnc  LBB2_311
+LBB2_310:
+	addl %r11d, %eax
+	jo  LBB1_342
+	jno  LBB1_343
+LBB1_342:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_343:
+LBB2_311:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_312
+	jnc  LBB2_313
+LBB2_312:
+	addl %r11d, %eax
+	jo  LBB1_344
+	jno  LBB1_345
+LBB1_344:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_345:
+LBB2_313:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_314
+	jnc  LBB2_315
+LBB2_314:
+	addl %r11d, %eax
+	jo  LBB1_346
+	jno  LBB1_347
+LBB1_346:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_347:
+LBB2_315:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_316
+	jnc  LBB2_317
+LBB2_316:
+	addl %r11d, %eax
+	jo  LBB1_348
+	jno  LBB1_349
+LBB1_348:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_349:
+LBB2_317:
+	sall %r11d
+rorl  %r12d
+	jc  LBB2_318
+	jnc  LBB2_319
+LBB2_318:
+	addl %r11d, %eax
+	jo  LBB1_350
+	jno  LBB1_351
+LBB1_350:
+	leaq L_fmt(%rip), %rdi
+	movq  L_fmt(%rip), %rsi
+	movb	$0, %al
+	callq  _printf
+	movl	$1, %edi  # exit(1)
+	call	_exit
+	leave
+	ret
+
+LBB1_351:
+LBB2_319:
+	movl  %eax, %r8d
 	movl  $0, %r9d
 	leaq L_.str(%rip), %rdi
 	movslq  %r8d, %rsi

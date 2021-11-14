@@ -66,20 +66,21 @@ void div(){
     // r13d: 答え
     // r14d: 割られる数をコピーしてきたところ
     printf ("\tmovl  $0, %%r12d\n"); // わられる数を格納
-    printf ("\tmovl  $0, %%r13d\n"); // 答えを格納
+    // printf ("\tmovl  $0, %%r13d\n"); // 答えを格納
     printf ("\tmovl  %%eax, %%r14d\n");// わられる数の一時保管
+    printf ("\tmovl $0, %%eax\n");
     printf ("\tcmpl  $0, %%r9d\n");
     printf ("\tjge   LBB3_%d\n",div_cnt);
     // %%r9dが負のとき
     printf ("\tnegl %%r9d\n");// 符号反転
     for(int i=0;i<16;i++){// 16bit なので
         printf ("\tshll  %%r12d\n");// わられる数をシフト
-        printf ("\tshll  %%r13d\n");
-        printf ("\tshll  %%r14d\n");
+        printf ("\tshll  %%eax\n");
+        printf ("\trcll  %%r14d\n");
         printf ("\tjc  LBB4_%d\n", div_in_cnt);// CFフラグを見るのでr14dがここ
         printf ("\tjmp  LBB4_%d\n", div_in_cnt+1);
         printf ("LBB4_%d:\n",div_in_cnt);
-        printf ("\taddl $1, %%r12d\n");
+        printf ("\tincl  %%r12d\n");
         printf ("LBB4_%d:\n",div_in_cnt+1);
         //
         printf ("\tcmpl  %%r9d, %%r12d\n");// r12d >= r9d だったら
@@ -87,22 +88,22 @@ void div(){
         printf ("\tjmp LBB5_%d\n", div_in_cnt+1);
         printf ("LBB5_%d:\n", div_in_cnt);
         printf ("\tsubl  %%r9d, %%r12d\n");
-        printf ("\taddl  $1, %%r13d\n");
+        printf ("\tincl  %%eax\n");
         printf ("LBB5_%d:\n", div_in_cnt+1);
         div_in_cnt += 2;
     }
-    printf ("\tnegl %%r13d\n");// 符号反転
+    printf ("\tnegl %%eax\n");// 符号反転
     // %%r9dが正のとき
     printf ("\tjmp   LBB3_%d\n",div_cnt+1);
     printf ("LBB3_%d:\n",div_cnt);
     for(int i=0;i<16;i++){// 16bit なので
         printf ("\tshll  %%r12d\n");// わられる数をシフト
-        printf ("\tshll  %%r13d\n");
-        printf ("\tshll  %%r14d\n");// CFフラグを見るのでr14dがここ
+        printf ("\tshll  %%eax\n");
+        printf ("\trcll  %%r14d\n");// CFフラグを見るのでr14dがここ
         printf ("\tjc  LBB4_%d\n", div_in_cnt);
         printf ("\tjmp  LBB4_%d\n", div_in_cnt+1);
         printf ("LBB4_%d:\n",div_in_cnt);
-        printf ("\taddl $1, %%r12d\n");
+        printf ("\tincl  %%r12d\n");
         printf ("LBB4_%d:\n",div_in_cnt+1);
         // 
         printf ("\tcmpl  %%r9d, %%r12d\n");
@@ -110,13 +111,13 @@ void div(){
         printf ("\tjmp LBB5_%d\n", div_in_cnt+1);
         printf ("LBB5_%d:\n", div_in_cnt);
         printf ("\tsubl  %%r9d, %%r12d\n");
-        printf ("\taddl  $1, %%r13d\n");
+        printf ("\tincl  %%eax\n");
         printf ("LBB5_%d:\n", div_in_cnt+1);
         div_in_cnt += 2;
     }
     printf ("LBB3_%d:\n",div_cnt+1);
     // 答えを移動
-    printf ("\tmovl %%r13d, %%eax\n"); // r13d -> eaxに移動
+    // printf ("\tmovl %%r13d, %%eax\n"); // r13d -> eaxに移動
     div_cnt += 2;
 }
 

@@ -1829,991 +1829,989 @@ LBB1_183:
 	negl %eax
 	negl %r9d
 	movl  $0, %r12d
-	movl  $0, %r13d
 	movl  %eax, %r14d
+	movl $0, %eax
 	cmpl  $0, %r9d
 	jge   LBB3_0
 	negl %r9d
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
 	jc  LBB4_0
-	jnc  LBB4_1
+	jmp  LBB4_1
 LBB4_0:
-	addl $1, %r12d
+	incl  %r12d
 LBB4_1:
 	cmpl  %r9d, %r12d
-	jge LBB4_2
-	jl LBB4_3
-LBB4_2:
+	jge LBB5_0
+	jmp LBB5_1
+LBB5_0:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
+	incl  %eax
+LBB5_1:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_2
+	jmp  LBB4_3
+LBB4_2:
+	incl  %r12d
 LBB4_3:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	cmpl  %r9d, %r12d
+	jge LBB5_2
+	jmp LBB5_3
+LBB5_2:
+	subl  %r9d, %r12d
+	incl  %eax
+LBB5_3:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
 	jc  LBB4_4
-	jnc  LBB4_5
+	jmp  LBB4_5
 LBB4_4:
-	addl $1, %r12d
+	incl  %r12d
 LBB4_5:
 	cmpl  %r9d, %r12d
-	jge LBB4_6
-	jl LBB4_7
-LBB4_6:
+	jge LBB5_4
+	jmp LBB5_5
+LBB5_4:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
+	incl  %eax
+LBB5_5:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_6
+	jmp  LBB4_7
+LBB4_6:
+	incl  %r12d
 LBB4_7:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	cmpl  %r9d, %r12d
+	jge LBB5_6
+	jmp LBB5_7
+LBB5_6:
+	subl  %r9d, %r12d
+	incl  %eax
+LBB5_7:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
 	jc  LBB4_8
-	jnc  LBB4_9
+	jmp  LBB4_9
 LBB4_8:
-	addl $1, %r12d
+	incl  %r12d
 LBB4_9:
 	cmpl  %r9d, %r12d
-	jge LBB4_10
-	jl LBB4_11
-LBB4_10:
+	jge LBB5_8
+	jmp LBB5_9
+LBB5_8:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
+	incl  %eax
+LBB5_9:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_10
+	jmp  LBB4_11
+LBB4_10:
+	incl  %r12d
 LBB4_11:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	cmpl  %r9d, %r12d
+	jge LBB5_10
+	jmp LBB5_11
+LBB5_10:
+	subl  %r9d, %r12d
+	incl  %eax
+LBB5_11:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
 	jc  LBB4_12
-	jnc  LBB4_13
+	jmp  LBB4_13
 LBB4_12:
-	addl $1, %r12d
+	incl  %r12d
 LBB4_13:
 	cmpl  %r9d, %r12d
-	jge LBB4_14
-	jl LBB4_15
-LBB4_14:
+	jge LBB5_12
+	jmp LBB5_13
+LBB5_12:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
+	incl  %eax
+LBB5_13:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_14
+	jmp  LBB4_15
+LBB4_14:
+	incl  %r12d
 LBB4_15:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	cmpl  %r9d, %r12d
+	jge LBB5_14
+	jmp LBB5_15
+LBB5_14:
+	subl  %r9d, %r12d
+	incl  %eax
+LBB5_15:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
 	jc  LBB4_16
-	jnc  LBB4_17
+	jmp  LBB4_17
 LBB4_16:
-	addl $1, %r12d
+	incl  %r12d
 LBB4_17:
 	cmpl  %r9d, %r12d
-	jge LBB4_18
-	jl LBB4_19
-LBB4_18:
+	jge LBB5_16
+	jmp LBB5_17
+LBB5_16:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
+	incl  %eax
+LBB5_17:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_18
+	jmp  LBB4_19
+LBB4_18:
+	incl  %r12d
 LBB4_19:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	cmpl  %r9d, %r12d
+	jge LBB5_18
+	jmp LBB5_19
+LBB5_18:
+	subl  %r9d, %r12d
+	incl  %eax
+LBB5_19:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
 	jc  LBB4_20
-	jnc  LBB4_21
+	jmp  LBB4_21
 LBB4_20:
-	addl $1, %r12d
+	incl  %r12d
 LBB4_21:
 	cmpl  %r9d, %r12d
-	jge LBB4_22
-	jl LBB4_23
-LBB4_22:
+	jge LBB5_20
+	jmp LBB5_21
+LBB5_20:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
+	incl  %eax
+LBB5_21:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_22
+	jmp  LBB4_23
+LBB4_22:
+	incl  %r12d
 LBB4_23:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	cmpl  %r9d, %r12d
+	jge LBB5_22
+	jmp LBB5_23
+LBB5_22:
+	subl  %r9d, %r12d
+	incl  %eax
+LBB5_23:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
 	jc  LBB4_24
-	jnc  LBB4_25
+	jmp  LBB4_25
 LBB4_24:
-	addl $1, %r12d
+	incl  %r12d
 LBB4_25:
 	cmpl  %r9d, %r12d
-	jge LBB4_26
-	jl LBB4_27
-LBB4_26:
+	jge LBB5_24
+	jmp LBB5_25
+LBB5_24:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
+	incl  %eax
+LBB5_25:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_26
+	jmp  LBB4_27
+LBB4_26:
+	incl  %r12d
 LBB4_27:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
+	cmpl  %r9d, %r12d
+	jge LBB5_26
+	jmp LBB5_27
+LBB5_26:
+	subl  %r9d, %r12d
+	incl  %eax
+LBB5_27:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
 	jc  LBB4_28
-	jnc  LBB4_29
+	jmp  LBB4_29
 LBB4_28:
-	addl $1, %r12d
+	incl  %r12d
 LBB4_29:
 	cmpl  %r9d, %r12d
-	jge LBB4_30
-	jl LBB4_31
+	jge LBB5_28
+	jmp LBB5_29
+LBB5_28:
+	subl  %r9d, %r12d
+	incl  %eax
+LBB5_29:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_30
+	jmp  LBB4_31
 LBB4_30:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
+	incl  %r12d
 LBB4_31:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_32
-	jnc  LBB4_33
-LBB4_32:
-	addl $1, %r12d
-LBB4_33:
 	cmpl  %r9d, %r12d
-	jge LBB4_34
-	jl LBB4_35
-LBB4_34:
+	jge LBB5_30
+	jmp LBB5_31
+LBB5_30:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_35:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_36
-	jnc  LBB4_37
-LBB4_36:
-	addl $1, %r12d
-LBB4_37:
-	cmpl  %r9d, %r12d
-	jge LBB4_38
-	jl LBB4_39
-LBB4_38:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_39:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_40
-	jnc  LBB4_41
-LBB4_40:
-	addl $1, %r12d
-LBB4_41:
-	cmpl  %r9d, %r12d
-	jge LBB4_42
-	jl LBB4_43
-LBB4_42:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_43:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_44
-	jnc  LBB4_45
-LBB4_44:
-	addl $1, %r12d
-LBB4_45:
-	cmpl  %r9d, %r12d
-	jge LBB4_46
-	jl LBB4_47
-LBB4_46:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_47:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_48
-	jnc  LBB4_49
-LBB4_48:
-	addl $1, %r12d
-LBB4_49:
-	cmpl  %r9d, %r12d
-	jge LBB4_50
-	jl LBB4_51
-LBB4_50:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_51:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_52
-	jnc  LBB4_53
-LBB4_52:
-	addl $1, %r12d
-LBB4_53:
-	cmpl  %r9d, %r12d
-	jge LBB4_54
-	jl LBB4_55
-LBB4_54:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_55:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_56
-	jnc  LBB4_57
-LBB4_56:
-	addl $1, %r12d
-LBB4_57:
-	cmpl  %r9d, %r12d
-	jge LBB4_58
-	jl LBB4_59
-LBB4_58:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_59:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_60
-	jnc  LBB4_61
-LBB4_60:
-	addl $1, %r12d
-LBB4_61:
-	cmpl  %r9d, %r12d
-	jge LBB4_62
-	jl LBB4_63
-LBB4_62:
-	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_63:
-	negl %r13d
+	incl  %eax
+LBB5_31:
+	negl %eax
 	jmp   LBB3_1
 LBB3_0:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_64
-	jnc  LBB4_65
-LBB4_64:
-	addl $1, %r12d
-LBB4_65:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_32
+	jmp  LBB4_33
+LBB4_32:
+	incl  %r12d
+LBB4_33:
 	cmpl  %r9d, %r12d
-	jge LBB4_66
-	jl LBB4_67
-LBB4_66:
+	jge LBB5_32
+	jmp LBB5_33
+LBB5_32:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_67:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_68
-	jnc  LBB4_69
-LBB4_68:
-	addl $1, %r12d
-LBB4_69:
+	incl  %eax
+LBB5_33:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_34
+	jmp  LBB4_35
+LBB4_34:
+	incl  %r12d
+LBB4_35:
 	cmpl  %r9d, %r12d
-	jge LBB4_70
-	jl LBB4_71
-LBB4_70:
+	jge LBB5_34
+	jmp LBB5_35
+LBB5_34:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_71:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_72
-	jnc  LBB4_73
-LBB4_72:
-	addl $1, %r12d
-LBB4_73:
+	incl  %eax
+LBB5_35:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_36
+	jmp  LBB4_37
+LBB4_36:
+	incl  %r12d
+LBB4_37:
 	cmpl  %r9d, %r12d
-	jge LBB4_74
-	jl LBB4_75
-LBB4_74:
+	jge LBB5_36
+	jmp LBB5_37
+LBB5_36:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_75:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_76
-	jnc  LBB4_77
-LBB4_76:
-	addl $1, %r12d
-LBB4_77:
+	incl  %eax
+LBB5_37:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_38
+	jmp  LBB4_39
+LBB4_38:
+	incl  %r12d
+LBB4_39:
 	cmpl  %r9d, %r12d
-	jge LBB4_78
-	jl LBB4_79
-LBB4_78:
+	jge LBB5_38
+	jmp LBB5_39
+LBB5_38:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_79:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_80
-	jnc  LBB4_81
-LBB4_80:
-	addl $1, %r12d
-LBB4_81:
+	incl  %eax
+LBB5_39:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_40
+	jmp  LBB4_41
+LBB4_40:
+	incl  %r12d
+LBB4_41:
 	cmpl  %r9d, %r12d
-	jge LBB4_82
-	jl LBB4_83
-LBB4_82:
+	jge LBB5_40
+	jmp LBB5_41
+LBB5_40:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_83:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_84
-	jnc  LBB4_85
-LBB4_84:
-	addl $1, %r12d
-LBB4_85:
+	incl  %eax
+LBB5_41:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_42
+	jmp  LBB4_43
+LBB4_42:
+	incl  %r12d
+LBB4_43:
 	cmpl  %r9d, %r12d
-	jge LBB4_86
-	jl LBB4_87
-LBB4_86:
+	jge LBB5_42
+	jmp LBB5_43
+LBB5_42:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_87:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_88
-	jnc  LBB4_89
-LBB4_88:
-	addl $1, %r12d
-LBB4_89:
+	incl  %eax
+LBB5_43:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_44
+	jmp  LBB4_45
+LBB4_44:
+	incl  %r12d
+LBB4_45:
 	cmpl  %r9d, %r12d
-	jge LBB4_90
-	jl LBB4_91
-LBB4_90:
+	jge LBB5_44
+	jmp LBB5_45
+LBB5_44:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_91:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_92
-	jnc  LBB4_93
-LBB4_92:
-	addl $1, %r12d
-LBB4_93:
+	incl  %eax
+LBB5_45:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_46
+	jmp  LBB4_47
+LBB4_46:
+	incl  %r12d
+LBB4_47:
 	cmpl  %r9d, %r12d
-	jge LBB4_94
-	jl LBB4_95
-LBB4_94:
+	jge LBB5_46
+	jmp LBB5_47
+LBB5_46:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_95:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_96
-	jnc  LBB4_97
-LBB4_96:
-	addl $1, %r12d
-LBB4_97:
+	incl  %eax
+LBB5_47:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_48
+	jmp  LBB4_49
+LBB4_48:
+	incl  %r12d
+LBB4_49:
 	cmpl  %r9d, %r12d
-	jge LBB4_98
-	jl LBB4_99
-LBB4_98:
+	jge LBB5_48
+	jmp LBB5_49
+LBB5_48:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_99:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_100
-	jnc  LBB4_101
-LBB4_100:
-	addl $1, %r12d
-LBB4_101:
+	incl  %eax
+LBB5_49:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_50
+	jmp  LBB4_51
+LBB4_50:
+	incl  %r12d
+LBB4_51:
 	cmpl  %r9d, %r12d
-	jge LBB4_102
-	jl LBB4_103
-LBB4_102:
+	jge LBB5_50
+	jmp LBB5_51
+LBB5_50:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_103:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_104
-	jnc  LBB4_105
-LBB4_104:
-	addl $1, %r12d
-LBB4_105:
+	incl  %eax
+LBB5_51:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_52
+	jmp  LBB4_53
+LBB4_52:
+	incl  %r12d
+LBB4_53:
 	cmpl  %r9d, %r12d
-	jge LBB4_106
-	jl LBB4_107
-LBB4_106:
+	jge LBB5_52
+	jmp LBB5_53
+LBB5_52:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_107:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_108
-	jnc  LBB4_109
-LBB4_108:
-	addl $1, %r12d
-LBB4_109:
+	incl  %eax
+LBB5_53:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_54
+	jmp  LBB4_55
+LBB4_54:
+	incl  %r12d
+LBB4_55:
 	cmpl  %r9d, %r12d
-	jge LBB4_110
-	jl LBB4_111
-LBB4_110:
+	jge LBB5_54
+	jmp LBB5_55
+LBB5_54:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_111:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_112
-	jnc  LBB4_113
-LBB4_112:
-	addl $1, %r12d
-LBB4_113:
+	incl  %eax
+LBB5_55:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_56
+	jmp  LBB4_57
+LBB4_56:
+	incl  %r12d
+LBB4_57:
 	cmpl  %r9d, %r12d
-	jge LBB4_114
-	jl LBB4_115
-LBB4_114:
+	jge LBB5_56
+	jmp LBB5_57
+LBB5_56:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_115:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_116
-	jnc  LBB4_117
-LBB4_116:
-	addl $1, %r12d
-LBB4_117:
+	incl  %eax
+LBB5_57:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_58
+	jmp  LBB4_59
+LBB4_58:
+	incl  %r12d
+LBB4_59:
 	cmpl  %r9d, %r12d
-	jge LBB4_118
-	jl LBB4_119
-LBB4_118:
+	jge LBB5_58
+	jmp LBB5_59
+LBB5_58:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_119:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_120
-	jnc  LBB4_121
-LBB4_120:
-	addl $1, %r12d
-LBB4_121:
+	incl  %eax
+LBB5_59:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_60
+	jmp  LBB4_61
+LBB4_60:
+	incl  %r12d
+LBB4_61:
 	cmpl  %r9d, %r12d
-	jge LBB4_122
-	jl LBB4_123
-LBB4_122:
+	jge LBB5_60
+	jmp LBB5_61
+LBB5_60:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_123:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_124
-	jnc  LBB4_125
-LBB4_124:
-	addl $1, %r12d
-LBB4_125:
+	incl  %eax
+LBB5_61:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_62
+	jmp  LBB4_63
+LBB4_62:
+	incl  %r12d
+LBB4_63:
 	cmpl  %r9d, %r12d
-	jge LBB4_126
-	jl LBB4_127
-LBB4_126:
+	jge LBB5_62
+	jmp LBB5_63
+LBB5_62:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_127:
+	incl  %eax
+LBB5_63:
 LBB3_1:
-	movl %r13d, %eax
 	movl  %eax, %r8d
 	jmp   LBB0_5
 LBB0_4:
 	movl  $0, %edx
 	movl  $0, %r12d
-	movl  $0, %r13d
 	movl  %eax, %r14d
+	movl $0, %eax
 	cmpl  $0, %r9d
 	jge   LBB3_2
 	negl %r9d
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_128
-	jnc  LBB4_129
-LBB4_128:
-	addl $1, %r12d
-LBB4_129:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_64
+	jmp  LBB4_65
+LBB4_64:
+	incl  %r12d
+LBB4_65:
 	cmpl  %r9d, %r12d
-	jge LBB4_130
-	jl LBB4_131
-LBB4_130:
+	jge LBB5_64
+	jmp LBB5_65
+LBB5_64:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_131:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_132
-	jnc  LBB4_133
-LBB4_132:
-	addl $1, %r12d
-LBB4_133:
+	incl  %eax
+LBB5_65:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_66
+	jmp  LBB4_67
+LBB4_66:
+	incl  %r12d
+LBB4_67:
 	cmpl  %r9d, %r12d
-	jge LBB4_134
-	jl LBB4_135
-LBB4_134:
+	jge LBB5_66
+	jmp LBB5_67
+LBB5_66:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_135:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_136
-	jnc  LBB4_137
-LBB4_136:
-	addl $1, %r12d
-LBB4_137:
+	incl  %eax
+LBB5_67:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_68
+	jmp  LBB4_69
+LBB4_68:
+	incl  %r12d
+LBB4_69:
 	cmpl  %r9d, %r12d
-	jge LBB4_138
-	jl LBB4_139
-LBB4_138:
+	jge LBB5_68
+	jmp LBB5_69
+LBB5_68:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_139:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_140
-	jnc  LBB4_141
-LBB4_140:
-	addl $1, %r12d
-LBB4_141:
+	incl  %eax
+LBB5_69:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_70
+	jmp  LBB4_71
+LBB4_70:
+	incl  %r12d
+LBB4_71:
 	cmpl  %r9d, %r12d
-	jge LBB4_142
-	jl LBB4_143
-LBB4_142:
+	jge LBB5_70
+	jmp LBB5_71
+LBB5_70:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_143:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_144
-	jnc  LBB4_145
-LBB4_144:
-	addl $1, %r12d
-LBB4_145:
+	incl  %eax
+LBB5_71:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_72
+	jmp  LBB4_73
+LBB4_72:
+	incl  %r12d
+LBB4_73:
 	cmpl  %r9d, %r12d
-	jge LBB4_146
-	jl LBB4_147
-LBB4_146:
+	jge LBB5_72
+	jmp LBB5_73
+LBB5_72:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_147:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_148
-	jnc  LBB4_149
-LBB4_148:
-	addl $1, %r12d
-LBB4_149:
+	incl  %eax
+LBB5_73:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_74
+	jmp  LBB4_75
+LBB4_74:
+	incl  %r12d
+LBB4_75:
 	cmpl  %r9d, %r12d
-	jge LBB4_150
-	jl LBB4_151
-LBB4_150:
+	jge LBB5_74
+	jmp LBB5_75
+LBB5_74:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_151:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_152
-	jnc  LBB4_153
-LBB4_152:
-	addl $1, %r12d
-LBB4_153:
+	incl  %eax
+LBB5_75:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_76
+	jmp  LBB4_77
+LBB4_76:
+	incl  %r12d
+LBB4_77:
 	cmpl  %r9d, %r12d
-	jge LBB4_154
-	jl LBB4_155
-LBB4_154:
+	jge LBB5_76
+	jmp LBB5_77
+LBB5_76:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_155:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_156
-	jnc  LBB4_157
-LBB4_156:
-	addl $1, %r12d
-LBB4_157:
+	incl  %eax
+LBB5_77:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_78
+	jmp  LBB4_79
+LBB4_78:
+	incl  %r12d
+LBB4_79:
 	cmpl  %r9d, %r12d
-	jge LBB4_158
-	jl LBB4_159
-LBB4_158:
+	jge LBB5_78
+	jmp LBB5_79
+LBB5_78:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_159:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_160
-	jnc  LBB4_161
-LBB4_160:
-	addl $1, %r12d
-LBB4_161:
+	incl  %eax
+LBB5_79:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_80
+	jmp  LBB4_81
+LBB4_80:
+	incl  %r12d
+LBB4_81:
 	cmpl  %r9d, %r12d
-	jge LBB4_162
-	jl LBB4_163
-LBB4_162:
+	jge LBB5_80
+	jmp LBB5_81
+LBB5_80:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_163:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_164
-	jnc  LBB4_165
-LBB4_164:
-	addl $1, %r12d
-LBB4_165:
+	incl  %eax
+LBB5_81:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_82
+	jmp  LBB4_83
+LBB4_82:
+	incl  %r12d
+LBB4_83:
 	cmpl  %r9d, %r12d
-	jge LBB4_166
-	jl LBB4_167
-LBB4_166:
+	jge LBB5_82
+	jmp LBB5_83
+LBB5_82:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_167:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_168
-	jnc  LBB4_169
-LBB4_168:
-	addl $1, %r12d
-LBB4_169:
+	incl  %eax
+LBB5_83:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_84
+	jmp  LBB4_85
+LBB4_84:
+	incl  %r12d
+LBB4_85:
 	cmpl  %r9d, %r12d
-	jge LBB4_170
-	jl LBB4_171
-LBB4_170:
+	jge LBB5_84
+	jmp LBB5_85
+LBB5_84:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_171:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_172
-	jnc  LBB4_173
-LBB4_172:
-	addl $1, %r12d
-LBB4_173:
+	incl  %eax
+LBB5_85:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_86
+	jmp  LBB4_87
+LBB4_86:
+	incl  %r12d
+LBB4_87:
 	cmpl  %r9d, %r12d
-	jge LBB4_174
-	jl LBB4_175
-LBB4_174:
+	jge LBB5_86
+	jmp LBB5_87
+LBB5_86:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_175:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_176
-	jnc  LBB4_177
-LBB4_176:
-	addl $1, %r12d
-LBB4_177:
+	incl  %eax
+LBB5_87:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_88
+	jmp  LBB4_89
+LBB4_88:
+	incl  %r12d
+LBB4_89:
 	cmpl  %r9d, %r12d
-	jge LBB4_178
-	jl LBB4_179
-LBB4_178:
+	jge LBB5_88
+	jmp LBB5_89
+LBB5_88:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_179:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_180
-	jnc  LBB4_181
-LBB4_180:
-	addl $1, %r12d
-LBB4_181:
+	incl  %eax
+LBB5_89:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_90
+	jmp  LBB4_91
+LBB4_90:
+	incl  %r12d
+LBB4_91:
 	cmpl  %r9d, %r12d
-	jge LBB4_182
-	jl LBB4_183
-LBB4_182:
+	jge LBB5_90
+	jmp LBB5_91
+LBB5_90:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_183:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_184
-	jnc  LBB4_185
-LBB4_184:
-	addl $1, %r12d
-LBB4_185:
+	incl  %eax
+LBB5_91:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_92
+	jmp  LBB4_93
+LBB4_92:
+	incl  %r12d
+LBB4_93:
 	cmpl  %r9d, %r12d
-	jge LBB4_186
-	jl LBB4_187
-LBB4_186:
+	jge LBB5_92
+	jmp LBB5_93
+LBB5_92:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_187:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_188
-	jnc  LBB4_189
-LBB4_188:
-	addl $1, %r12d
-LBB4_189:
+	incl  %eax
+LBB5_93:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_94
+	jmp  LBB4_95
+LBB4_94:
+	incl  %r12d
+LBB4_95:
 	cmpl  %r9d, %r12d
-	jge LBB4_190
-	jl LBB4_191
-LBB4_190:
+	jge LBB5_94
+	jmp LBB5_95
+LBB5_94:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_191:
-	negl %r13d
+	incl  %eax
+LBB5_95:
+	negl %eax
 	jmp   LBB3_3
 LBB3_2:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_192
-	jnc  LBB4_193
-LBB4_192:
-	addl $1, %r12d
-LBB4_193:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_96
+	jmp  LBB4_97
+LBB4_96:
+	incl  %r12d
+LBB4_97:
 	cmpl  %r9d, %r12d
-	jge LBB4_194
-	jl LBB4_195
-LBB4_194:
+	jge LBB5_96
+	jmp LBB5_97
+LBB5_96:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_195:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_196
-	jnc  LBB4_197
-LBB4_196:
-	addl $1, %r12d
-LBB4_197:
+	incl  %eax
+LBB5_97:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_98
+	jmp  LBB4_99
+LBB4_98:
+	incl  %r12d
+LBB4_99:
 	cmpl  %r9d, %r12d
-	jge LBB4_198
-	jl LBB4_199
-LBB4_198:
+	jge LBB5_98
+	jmp LBB5_99
+LBB5_98:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_199:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_200
-	jnc  LBB4_201
-LBB4_200:
-	addl $1, %r12d
-LBB4_201:
+	incl  %eax
+LBB5_99:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_100
+	jmp  LBB4_101
+LBB4_100:
+	incl  %r12d
+LBB4_101:
 	cmpl  %r9d, %r12d
-	jge LBB4_202
-	jl LBB4_203
-LBB4_202:
+	jge LBB5_100
+	jmp LBB5_101
+LBB5_100:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_203:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_204
-	jnc  LBB4_205
-LBB4_204:
-	addl $1, %r12d
-LBB4_205:
+	incl  %eax
+LBB5_101:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_102
+	jmp  LBB4_103
+LBB4_102:
+	incl  %r12d
+LBB4_103:
 	cmpl  %r9d, %r12d
-	jge LBB4_206
-	jl LBB4_207
-LBB4_206:
+	jge LBB5_102
+	jmp LBB5_103
+LBB5_102:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_207:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_208
-	jnc  LBB4_209
-LBB4_208:
-	addl $1, %r12d
-LBB4_209:
+	incl  %eax
+LBB5_103:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_104
+	jmp  LBB4_105
+LBB4_104:
+	incl  %r12d
+LBB4_105:
 	cmpl  %r9d, %r12d
-	jge LBB4_210
-	jl LBB4_211
-LBB4_210:
+	jge LBB5_104
+	jmp LBB5_105
+LBB5_104:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_211:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_212
-	jnc  LBB4_213
-LBB4_212:
-	addl $1, %r12d
-LBB4_213:
+	incl  %eax
+LBB5_105:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_106
+	jmp  LBB4_107
+LBB4_106:
+	incl  %r12d
+LBB4_107:
 	cmpl  %r9d, %r12d
-	jge LBB4_214
-	jl LBB4_215
-LBB4_214:
+	jge LBB5_106
+	jmp LBB5_107
+LBB5_106:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_215:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_216
-	jnc  LBB4_217
-LBB4_216:
-	addl $1, %r12d
-LBB4_217:
+	incl  %eax
+LBB5_107:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_108
+	jmp  LBB4_109
+LBB4_108:
+	incl  %r12d
+LBB4_109:
 	cmpl  %r9d, %r12d
-	jge LBB4_218
-	jl LBB4_219
-LBB4_218:
+	jge LBB5_108
+	jmp LBB5_109
+LBB5_108:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_219:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_220
-	jnc  LBB4_221
-LBB4_220:
-	addl $1, %r12d
-LBB4_221:
+	incl  %eax
+LBB5_109:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_110
+	jmp  LBB4_111
+LBB4_110:
+	incl  %r12d
+LBB4_111:
 	cmpl  %r9d, %r12d
-	jge LBB4_222
-	jl LBB4_223
-LBB4_222:
+	jge LBB5_110
+	jmp LBB5_111
+LBB5_110:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_223:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_224
-	jnc  LBB4_225
-LBB4_224:
-	addl $1, %r12d
-LBB4_225:
+	incl  %eax
+LBB5_111:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_112
+	jmp  LBB4_113
+LBB4_112:
+	incl  %r12d
+LBB4_113:
 	cmpl  %r9d, %r12d
-	jge LBB4_226
-	jl LBB4_227
-LBB4_226:
+	jge LBB5_112
+	jmp LBB5_113
+LBB5_112:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_227:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_228
-	jnc  LBB4_229
-LBB4_228:
-	addl $1, %r12d
-LBB4_229:
+	incl  %eax
+LBB5_113:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_114
+	jmp  LBB4_115
+LBB4_114:
+	incl  %r12d
+LBB4_115:
 	cmpl  %r9d, %r12d
-	jge LBB4_230
-	jl LBB4_231
-LBB4_230:
+	jge LBB5_114
+	jmp LBB5_115
+LBB5_114:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_231:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_232
-	jnc  LBB4_233
-LBB4_232:
-	addl $1, %r12d
-LBB4_233:
+	incl  %eax
+LBB5_115:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_116
+	jmp  LBB4_117
+LBB4_116:
+	incl  %r12d
+LBB4_117:
 	cmpl  %r9d, %r12d
-	jge LBB4_234
-	jl LBB4_235
-LBB4_234:
+	jge LBB5_116
+	jmp LBB5_117
+LBB5_116:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_235:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_236
-	jnc  LBB4_237
-LBB4_236:
-	addl $1, %r12d
-LBB4_237:
+	incl  %eax
+LBB5_117:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_118
+	jmp  LBB4_119
+LBB4_118:
+	incl  %r12d
+LBB4_119:
 	cmpl  %r9d, %r12d
-	jge LBB4_238
-	jl LBB4_239
-LBB4_238:
+	jge LBB5_118
+	jmp LBB5_119
+LBB5_118:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_239:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_240
-	jnc  LBB4_241
-LBB4_240:
-	addl $1, %r12d
-LBB4_241:
+	incl  %eax
+LBB5_119:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_120
+	jmp  LBB4_121
+LBB4_120:
+	incl  %r12d
+LBB4_121:
 	cmpl  %r9d, %r12d
-	jge LBB4_242
-	jl LBB4_243
-LBB4_242:
+	jge LBB5_120
+	jmp LBB5_121
+LBB5_120:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_243:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_244
-	jnc  LBB4_245
-LBB4_244:
-	addl $1, %r12d
-LBB4_245:
+	incl  %eax
+LBB5_121:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_122
+	jmp  LBB4_123
+LBB4_122:
+	incl  %r12d
+LBB4_123:
 	cmpl  %r9d, %r12d
-	jge LBB4_246
-	jl LBB4_247
-LBB4_246:
+	jge LBB5_122
+	jmp LBB5_123
+LBB5_122:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_247:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_248
-	jnc  LBB4_249
-LBB4_248:
-	addl $1, %r12d
-LBB4_249:
+	incl  %eax
+LBB5_123:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_124
+	jmp  LBB4_125
+LBB4_124:
+	incl  %r12d
+LBB4_125:
 	cmpl  %r9d, %r12d
-	jge LBB4_250
-	jl LBB4_251
-LBB4_250:
+	jge LBB5_124
+	jmp LBB5_125
+LBB5_124:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_251:
-	shl  %r12d
-	shl  %r13d
-	shl  %r14d
-	jc  LBB4_252
-	jnc  LBB4_253
-LBB4_252:
-	addl $1, %r12d
-LBB4_253:
+	incl  %eax
+LBB5_125:
+	shll  %r12d
+	shll  %eax
+	rcll  %r14d
+	jc  LBB4_126
+	jmp  LBB4_127
+LBB4_126:
+	incl  %r12d
+LBB4_127:
 	cmpl  %r9d, %r12d
-	jge LBB4_254
-	jl LBB4_255
-LBB4_254:
+	jge LBB5_126
+	jmp LBB5_127
+LBB5_126:
 	subl  %r9d, %r12d
-	addl  $1, %r13d
-LBB4_255:
+	incl  %eax
+LBB5_127:
 LBB3_3:
-	movl %r13d, %eax
 	movl  %eax, %r8d
 LBB0_5:
 	movl  $0, %r9d
