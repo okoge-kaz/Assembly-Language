@@ -46,7 +46,7 @@ void mul(){
     printf ("\tmovl %%eax, %%r11d\n");
     printf ("\tmovl %%r9d, %%r12d\n");
     printf ("\tmovl $0, %%eax\n");
-    for(int i=0;i<16;i++){// 16bitなので
+    for(int i=0;i<32;i++){// 32bitなので
         printf ("rorl  %%r12d\n");
         printf ("\tjc  LBB2_%d\n", mul_cnt);
         printf ("\tjnc  LBB2_%d\n", mul_cnt+1);
@@ -63,11 +63,11 @@ void mul(){
 }
 void div(){
     // r9d: 割る数
-    // r10d: 割られる数(現状)
+    // r13d: 割られる数(現状)
     // r11d: シフト用、割られる数
     // r12d: 答え（商）
     printf ("\tmovl %%eax, %%r11d\n"
-            "\tmovl $0, %%r10d\n"
+            "\tmovl $0, %%r13d\n"
             "\tmovl $0, %%r12d\n");
     // r11dに入る値は必ず正
     printf ("\tcmpl $0, %%r9d\n"
@@ -75,8 +75,8 @@ void div(){
     // r9d: 割る数 が負の場合
     printf ("\tnegl %%r9d\n");
     // 処理 start
-    for(int i=0;i<16;i++){
-        printf ("\tshll %%r10d\n"
+    for(int i=0;i<32;i++){
+        printf ("\tshll %%r13d\n"
                 "\tshll %%r12d\n"
                 "\tshll %%r11d\n");
         printf ("\tjc LBB4_%d\n",div_in_cnt);
@@ -91,20 +91,20 @@ void div(){
         // CF: = 1のとき
 
         // 処理 start
-        printf ("\tincl %%r10d\n");// 現状の値を足す1する
+        printf ("\tincl %%r13d\n");// 現状の値を足す1する
         // 処理 end
 
         printf ("LBB4_%d:\n",div_in_cnt+1);
         div_in_cnt += 2;
         
         // r10d >= r9d かどうか検証
-        printf ("\tcmpl %%r9d, %%r10d\n");
+        printf ("\tcmpl %%r9d, %%r13d\n");
         printf ("\tjge  LBB5_%d\n",div_op_cnt);
         // r10d < r9d
         printf ("\tjmp LBB5_%d\n",div_op_cnt+1);
         printf ("LBB5_%d:\n", div_op_cnt);
         // r10d >= r9d
-        printf ("\tsubl %%r9d, %%r10d\n");
+        printf ("\tsubl %%r9d, %%r13d\n");
         printf ("\tincl %%r12d\n");
         printf ("LBB5_%d:\n", div_op_cnt+1);
         div_op_cnt += 2;
@@ -115,8 +115,8 @@ void div(){
     printf ("LBB3_%d:\n",div_cnt);
     // r9d: 割る数 が正の場合
     // 処理 start
-    for(int i=0;i<16;i++){
-        printf ("\tshll %%r10d\n"
+    for(int i=0;i<32;i++){
+        printf ("\tshll %%r13d\n"
                 "\tshll %%r12d\n"
                 "\tshll %%r11d\n");
         printf ("\tjc LBB4_%d\n",div_in_cnt);
@@ -131,20 +131,20 @@ void div(){
         // CF: = 1のとき
 
         // 処理 start
-        printf ("\tincl %%r10d\n");// 現状の値を足す1する
+        printf ("\tincl %%r13d\n");// 現状の値を足す1する
         // 処理 end
 
         printf ("LBB4_%d:\n",div_in_cnt+1);
         div_in_cnt += 2;
         
         // r10d >= r9d かどうか検証
-        printf ("\tcmpl %%r9d, %%r10d\n");
+        printf ("\tcmpl %%r9d, %%r13d\n");
         printf ("\tjge  LBB5_%d\n",div_op_cnt);
         // r10d < r9d
         printf ("\tjmp LBB5_%d\n",div_op_cnt+1);
         printf ("LBB5_%d:\n", div_op_cnt);
         // r10d >= r9d
-        printf ("\tsubl %%r9d, %%r10d\n");
+        printf ("\tsubl %%r9d, %%r13d\n");
         printf ("\tincl %%r12d\n");
         printf ("LBB5_%d:\n", div_op_cnt+1);
         div_op_cnt += 2;
