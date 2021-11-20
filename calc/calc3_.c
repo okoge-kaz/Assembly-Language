@@ -2,6 +2,8 @@
 int cnt = 0;
 int count = 0;
 int mul_cnt = 0;
+int mul_sign_count1 = 0;
+int mul_sign_count2 = 0;
 int div_cnt = 0;
 int div_in_cnt = 0;
 int div_op_cnt = 0;
@@ -46,8 +48,20 @@ void mul(){
     printf ("\tmovl %%eax, %%r11d\n");
     printf ("\tmovl %%r9d, %%r12d\n");
     printf ("\tmovl $0, %%eax\n");
+
+    // 符号による場合わけ
+    printf ("\tcmpl $0, %%r11d\n");
+    printf ("\tjg LBB21_%d\n",mul_sign_count1);
+    // r11d 負の場合または0の場合
+    printf("\tnegl %%r11d\n");
+    // 処理 start
+    printf ("\tcmpl $0, %%r12d\n");
+    printf ("\tjg LBB22_%d\n",mul_sign_count2);
+    // r12d が負の場合または0の場合
+    printf ("\tnegl %%r12d\n");
+    //
     for(int i=0;i<32;i++){// 32bitなので
-        printf ("rorl  %%r12d\n");
+        printf ("\trorl  %%r12d\n");
         printf ("\tjc  LBB2_%d\n", mul_cnt);
         printf ("\tjnc  LBB2_%d\n", mul_cnt+1);
         printf ("LBB2_%d:\n",mul_cnt);
@@ -60,6 +74,79 @@ void mul(){
         }
         mul_cnt += 2;
     }
+    //
+    printf ("\tnegl %%eax\n");
+    printf ("\tjmp LBB22_%d\n",mul_sign_count2+1);
+    printf ("\tLBB22_%d:\n",mul_sign_count2);
+    // r12d が正の場合
+    for(int i=0;i<32;i++){// 32bitなので
+        printf ("\trorl  %%r12d\n");
+        printf ("\tjc  LBB2_%d\n", mul_cnt);
+        printf ("\tjnc  LBB2_%d\n", mul_cnt+1);
+        printf ("LBB2_%d:\n",mul_cnt);
+        printf ("\taddl %%r11d, %%eax\n");
+        print_E();
+        printf ("LBB2_%d:\n",mul_cnt+1);
+        if(i<15){
+            printf ("\tsall %%r11d\n");
+            // print_E();
+        }
+        mul_cnt += 2;
+    }
+    printf ("\tjmp LBB22_%d\n",mul_sign_count2+1);
+    printf ("\tLBB22_%d:\n",mul_sign_count2+1);
+    mul_sign_count2 += 2;
+    // 処理 end
+    printf ("\tnegl %%eax\n");//つじつまあわせ
+    printf ("\tjmp LBB21_%d\n",mul_sign_count1+1);
+    printf ("LBB21_%d:\n",mul_sign_count1);
+    // r11d 正の場合
+    // 処理start
+    printf ("\tcmpl $0, %%r12d\n");
+    printf ("\tjg LBB22_%d\n",mul_sign_count2);
+    // r12d が負の場合または0の場合
+    printf ("\tnegl %%r12d\n");
+    //
+    for(int i=0;i<32;i++){// 32bitなので
+        printf ("\trorl  %%r12d\n");
+        printf ("\tjc  LBB2_%d\n", mul_cnt);
+        printf ("\tjnc  LBB2_%d\n", mul_cnt+1);
+        printf ("LBB2_%d:\n",mul_cnt);
+        printf ("\taddl %%r11d, %%eax\n");
+        print_E();
+        printf ("LBB2_%d:\n",mul_cnt+1);
+        if(i<15){
+            printf ("\tsall %%r11d\n");
+            // print_E();
+        }
+        mul_cnt += 2;
+    }
+    //
+    printf ("\tnegl %%eax\n");
+    printf ("\tjmp LBB22_%d\n",mul_sign_count2+1);
+    printf ("\tLBB22_%d:\n",mul_sign_count2);
+    // r12d が正の場合
+    for(int i=0;i<32;i++){// 32bitなので
+        printf ("\trorl  %%r12d\n");
+        printf ("\tjc  LBB2_%d\n", mul_cnt);
+        printf ("\tjnc  LBB2_%d\n", mul_cnt+1);
+        printf ("LBB2_%d:\n",mul_cnt);
+        printf ("\taddl %%r11d, %%eax\n");
+        print_E();
+        printf ("LBB2_%d:\n",mul_cnt+1);
+        if(i<15){
+            printf ("\tsall %%r11d\n");
+            // print_E();
+        }
+        mul_cnt += 2;
+    }
+    printf ("\tjmp LBB22_%d\n",mul_sign_count2+1);
+    printf ("\tLBB22_%d:\n",mul_sign_count2+1);
+    mul_sign_count2 += 2;
+    // 処理end
+    printf ("LBB21_%d:\n",mul_sign_count1+1);
+    mul_sign_count1 += 2;
+    
 }
 void div(){
     // r9d: 割る数
