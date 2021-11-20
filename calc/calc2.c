@@ -54,7 +54,7 @@ void calc(char last_op){
     else if(last_op == '*'){
         // 符号付き掛け算
         printf ("\tmovl  %%r8d, %%eax\n");
-        printf ("\timull  %%r9d\n");// rax = rax * r9
+        printf ("\timull  %%r9d\n");// eax = eax * r9
         print_E();
         printf ("\tmovl  %%eax, %%r8d\n");
         printf ("\tmovl  $0, %%r9d\n");
@@ -66,16 +66,16 @@ void calc(char last_op){
         printf ("\tmovl  %%r8d, %%eax\n");
         printf ("\tcmpl  $0, %%eax\n"
                 "\tjge   LBB0_%d\n",cnt);
-        // 負の場合 %rax < 0
+        // 負の場合 %eax < 0
         printf ("\tmovl  $0, %%edx\n");
-        printf ("\tnegl %%eax\n");// 符号反転 rax を正にする
+        printf ("\tnegl %%eax\n");// 符号反転 eax を正にする
         printf ("\tnegl %%r9d\n");// 符号反転
         printf ("\tidivl  %%r9d\n");
         print_E();
         printf ("\tmovl  %%eax, %%r8d\n");// 結果を格納
         printf ("\tjmp   LBB0_%d\n",cnt+1);
         printf ("LBB0_%d:\n",cnt);
-        // 正の場合 %rax >= 0
+        // 正の場合 %eax >= 0
         printf ("\tmovl  $0, %%edx\n");
         printf ("\tidivl  %%r9d\n");
         print_E();
@@ -91,9 +91,9 @@ void calc(char last_op){
 int state_change(int state){
     return 1 - state;
 }
-//  acc := %r8
-//  num := %r9
-//memory:= %r10
+//  acc := %r8d
+//  num := %r9d
+//memory:= %r10d
 int main(int argc, char *argv []){
     char last_op;
     char *p = argv[1];
@@ -125,7 +125,7 @@ int main(int argc, char *argv []){
             if('0' <= *p && *p <= '9'){
                 // 数字キー入力
                 int d = *p - '0';
-                printf ("\tmovl  $%d, %%r9d\n", d);// num:=%r9
+                printf ("\tmovl  $%d, %%r9d\n", d);// num:=%r9d
                 state = state_change(state);
             }
             else if(*p == 'C'){
