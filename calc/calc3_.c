@@ -184,13 +184,13 @@ void div(){
         printf ("LBB4_%d:\n",div_in_cnt+1);
         div_in_cnt += 2;
         
-        // r10d >= r9d かどうか検証
+        // r13d >= r9d かどうか検証
         printf ("\tcmpl %%r9d, %%r13d\n");
         printf ("\tjge  LBB5_%d\n",div_op_cnt);
-        // r10d < r9d
+        // r13d < r9d
         printf ("\tjmp LBB5_%d\n",div_op_cnt+1);
         printf ("LBB5_%d:\n", div_op_cnt);
-        // r10d >= r9d
+        // r13d >= r9d
         printf ("\tsubl %%r9d, %%r13d\n");
         printf ("\tincl %%r12d\n");
         printf ("LBB5_%d:\n", div_op_cnt+1);
